@@ -1124,7 +1124,7 @@ kubectl describe pod nginx
 </details>
 <br>
 
-**3. Remove the annotations from the pod and delete the pod**
+**3. Remove the annotations from the pod and delete the pod.**
 
 <details><summary>Solution</summary>
 <p>
