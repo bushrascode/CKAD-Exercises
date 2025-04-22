@@ -1,8 +1,13 @@
 ## Understand Requests, Limits, Quotas
 
+* [Requests And Limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ "Requests And Limits")
+* [Limit Ranges](https://kubernetes.io/docs/concepts/policy/limit-range/ "Limit Ranges")
+* [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/ "Resource Quotas")
+
+
 ### Requests, Limits
 
-**1.	Create a wordpress pod with resource requests set to 64Mi of memory and 0.2 CPU core, and limits set to 128Mi of memory and 0.5 CPU, applied at the container level**
+**1.	Create a wordpress Pod with resource requests set to 64Mi of memory and 0.2 CPU core, and limits set to 128Mi of memory and 0.5 CPU, applied at the container level**
 
 <details><summary>Solution</summary>
 
@@ -40,9 +45,9 @@ status: {}
 </p>
 </details>
 
-<br/>
 
-**2.	Force the immediate deletion of the pod**
+
+**2.	Force the immediate deletion of the Pod**
 
 <details><summary>Solution</summary>
 
@@ -55,7 +60,7 @@ kubectl delete pod wordpress --force --grace-period=0
 </p>
 </details>
 
-<br/>
+
 
 ### LimitRanges
 
@@ -86,9 +91,9 @@ kubectl get limitrange
 </p>
 </details>
 
-<br/>
 
-**2.	Create a wordpress pod with 64Mi of memory and 0.2 CPU core for requests, and limits of 128Mi of memory and 0.6 CPU. Was the pod creation successful?**
+
+**2.	Create a wordpress Pod with 64Mi of memory and 0.2 CPU core for requests, and limits of 128Mi of memory and 0.6 CPU. Was the Pod creation successful?**
 
 <details><summary>Solution</summary>
 
@@ -125,7 +130,7 @@ kubectl apply -f wordpress2.yaml #should display Forbidden error
 </p>
 </details>
 
-<br/>
+
 
 **3.	Delete the LimitRange**
 
@@ -140,7 +145,7 @@ kubectl delete limitrange cpu-resource-constraint
 </p>
 </details>
 
-<br/>
+
 
 ### Quotas
 
@@ -158,9 +163,9 @@ kubectl get ns
 </p>
 </details>
 
-<br/>
 
-**2.	Create a ResourceQuota that sets the following hard limits for the 'test-quota' namespace: cpu: 5, memory: 5Gi, and pods: 2**
+
+**2.	Create a ResourceQuota that sets the following hard limits for the 'test-quota' namespace: cpu: 5, memory: 5Gi, and Pods: 2**
 
 <details><summary>Solution</summary>
 
@@ -174,9 +179,9 @@ kubectl get quota -n test-quota
 </p>
 </details>
 
-<br/>
 
-**3.	Create a deployment using the nginx image with 3 replicas in the 'test-quota' namespace. Set resource requests to 64Mi of memory and 0.2 CPU core, and limits to 128Mi of memory and 0.5 CPU, applied at the container level. Was the creation successful? Are all pods running?**
+
+**3.	Create a deployment using the nginx image with 3 replicas in the 'test-quota' namespace. Set resource requests to 64Mi of memory and 0.2 CPU core, and limits to 128Mi of memory and 0.5 CPU, applied at the container level. Was the creation successful? Are all Pods running?**
 
 <details><summary>Solution</summary>
 
@@ -227,9 +232,9 @@ kubectl get pods -n test-quota #only 2 pods should be running
 </p>
 </details>
 
-<br/>
 
-**4.	Adjust the ResourceQuota so that all 3 pods can run**
+
+**4.	Adjust the ResourceQuota so that all 3 Pods can run**
 
 <details><summary>Solution</summary>
 
@@ -256,4 +261,3 @@ kubectl get pods -n test-quota #should display 3 nginx pods
 </p>
 </details>
 
-<br/>

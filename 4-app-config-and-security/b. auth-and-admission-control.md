@@ -1,8 +1,11 @@
 ## Understand authentication, authorization and admission control
 
+* [Admission Controllers](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/ "Admission Controllers")
+* [RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/ "RBAC Authorization")
+
 ### Admission controllers
 
-**1. Create a pod using the nginx image. Which service account is associated with the pod?**
+**1. Create a Pod using the nginx image. Which service account is associated with the Pod?**
 
 <details><summary>Solution</summary>
 
@@ -16,7 +19,7 @@ kubectl describe pod nginx | grep -i "Service Account" #should display 'default'
 </p>
 </details>
 
-<br/>
+
 
 **2. Disable the ServiceAccount admission controller. Note: it may take a few minutes for the cluster to restart**
 
@@ -33,9 +36,9 @@ Save the file and wait for the cluster to restart
 </p>
 </details>
 
-<br/>
 
-**3. Create another pod using the nginx image. Which service account is associated with the new pod?**
+
+**3. Create another Pod using the nginx image. Which service account is associated with the new Pod?**
 
 <details><summary>Solution</summary>
 
@@ -49,7 +52,7 @@ kubectl describe pod nginx2 | grep -i "Service Account" #should return nothing
 </p>
 </details>
 
-<br/>
+
 
 ### Roles and RoleBindings
 
@@ -67,7 +70,7 @@ kubectl get ns
 </p>
 </details>
 
-<br/>
+
 
 **2.	Set this namespace to be used in the current context**
 
@@ -82,7 +85,7 @@ kubectl config set-context --current --namespace=test-roles
 </p>
 </details>
 
-<br/>
+
 
 **3.	Create the 'deployment-manager' Role in the 'test-roles' namespace  that allows the following operations on Deployments: get, list, watch, create, and update**
 
@@ -110,7 +113,7 @@ kubectl get roles
 </p>
 </details>
 
-<br/>
+
 
 **4.	Create the 'deployment-manager-sa' ServiceAccount in the 'test-roles' namespace. Use the imperative command to create the ServiceAccount**
 
@@ -126,7 +129,7 @@ kubectl get sa
 </p>
 </details>
 
-<br/>
+
 
 **5.	Create the 'deployment-manager-binding' RoleBinding to bind the role 'deployment-manager' to the 'deployment-manager-sa' ServiceAccount**
 
@@ -157,7 +160,7 @@ kubectl get rolebindings
 </p>
 </details>
 
-<br/>
+
 
 **6.	Test your work by impersonating the ServiceAccount to list the deployments using the following command:**
 

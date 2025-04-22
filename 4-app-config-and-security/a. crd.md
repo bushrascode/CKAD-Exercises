@@ -1,4 +1,7 @@
 ## Discover and use resources that extend Kubernetes (CRD, Operators)
+
+* [Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/ "Custom Resources")
+
 **1. Create a CustomResourceDefinition for a Car with the following specifications: <br/> &nbsp;&nbsp;&nbsp;&nbsp; a) Kind: Car <br/> &nbsp;&nbsp;&nbsp;&nbsp; b)	Name: cards.stable.example.com <br/> &nbsp;&nbsp;&nbsp;&nbsp; c)	Scope: Namespaced <br/> &nbsp;&nbsp;&nbsp;&nbsp; d)	Singular name: car <br/> &nbsp;&nbsp;&nbsp;&nbsp; e)	Plural name: cars <br/> &nbsp;&nbsp;&nbsp;&nbsp; f)	Properties: <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i. color: string <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ii. brand: string <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; iii. model: string <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; iv. year: int <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; v. electric: bool**
 
 <details><summary>Solution</summary>

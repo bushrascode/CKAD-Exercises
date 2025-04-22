@@ -1,5 +1,7 @@
 # III.	Application Observability And Maintenance
 
+* [Api Deprecations](https://kubernetes.io/docs/reference/using-api/deprecation-guide/ "Api Deprecations")
+
 ## Understand API Deprecations
 
 **1. Create the CronJob using the file below and fix any issues that occur.**

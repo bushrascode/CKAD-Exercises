@@ -1,6 +1,8 @@
 ## Services
 
-**1. Create an nginx pod named 'nginx' in the default namespace and set containerPort=80. Expose it using a ClusterIP service named 'nginx-clusterip' on port 80. Then, list all services and endpoints in the default namespace. Next, create a busybox pod that never restarts, exec into it, and send a request to the ClusterIP address of the nginx pod**
+* [Services](https://kubernetes.io/docs/concepts/services-networking/service/ "Services")
+
+**1. Create an nginx Pod named 'nginx' in the default namespace and set containerPort=80. Expose it using a ClusterIP service named 'nginx-clusterip' on port 80. Then, list all services and endpoints in the default namespace. Next, create a busybox Pod that never restarts, exec into it, and send a request to the ClusterIP address of the nginx Pod**
 
 <details><summary>Solution</summary>
 
@@ -16,9 +18,9 @@ wget -O- {clusterIp} #should respond
 ```
 </p>
 </details>
-<br/>
 
-**2. Create a pod using the 'httpd:alpine' image and expose it via a NodePort service named 'httpd-nodeport' on node port 30001, setting both the port and targetPort to 80. Then, get the node the pod is assigned to, display its IP address, and access the pod using {NodeIP}:30001**
+
+**2. Create a Pod using the 'httpd:alpine' image and expose it via a NodePort service named 'httpd-nodeport' on node port 30001, setting both the port and targetPort to 80. Then, get the node the Pod is assigned to, display its IP address, and access the Pod using {NodeIP}:30001**
 
 <details><summary>Solution</summary>
 
@@ -58,7 +60,7 @@ curl {nodeIp}:30001 #should respond
 ```
 </p>
 </details>
-<br/>
+
 
 **3. Create a Deployment using the nginx image with 2 replicas, and expose it via a NodePort service named 'nginx-nodeport' on port 20001, setting both the port and targetPort to 80. Were you able to successfully create the NodePort service? If any issues occurred, correct them accordingly.**
 
@@ -97,4 +99,3 @@ kubectl apply -f httpd-svc.yaml #should display error; resolve it by setting the
 ```
 </p>
 </details>
-<br/>

@@ -1,5 +1,7 @@
 ## Create & Consume Secrets
 
+* [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/ "Secrets")
+
 ### Create generic secret
 
 **1.	Create a secret named 'password-secret' from literal values containing the key-value pair password=pass123!, and display the secret as YAML.**
@@ -15,9 +17,9 @@ kubectl get secret password-secret -o yaml
 </p>
 </details>
 
-<br/>
 
-**2.	Create a busybox pod that has an environment variable named PASSWORD, which takes its value from the secret 'password-secret'. The busybox container should execute the command: 'echo $PASSWORD; sleep 3600'**
+
+**2.	Create a busybox Pod that has an environment variable named PASSWORD, which takes its value from the secret 'password-secret'. The busybox container should execute the command: 'echo $PASSWORD; sleep 3600'**
 
 <details><summary>Solution</summary>
 
@@ -54,9 +56,9 @@ status: {}
 </p>
 </details>
 
-<br/>
 
-**3. Check the logs of the busybox pod**
+
+**3. Check the logs of the busybox Pod**
 
 <details><summary>Solution</summary>
 
@@ -68,9 +70,9 @@ kubectl logs busybox #should display pass123!
 </p>
 </details>
 
-<br/>
 
-**4.	Delete the busybox pod**
+
+**4.	Delete the busybox Pod**
 
 <details><summary>Solution</summary>
 
@@ -82,9 +84,9 @@ kubectl delete pod busybox --force --grace-period=0
 </p>
 </details>
 
-<br/>
 
-**5.	Modify the definition of the busybox pod created in step 1 so that the secret 'password-secret' is mounted as a volume to the pod using mountPath: /etc/secrets. The volume should be named 'secret-volume'.**
+
+**5.	Modify the definition of the busybox Pod created in step 1 so that the secret 'password-secret' is mounted as a volume to the Pod using mountPath: /etc/secrets. The volume should be named 'secret-volume'.**
 
 <details><summary>Solution</summary>
 
@@ -118,9 +120,9 @@ status: {}
 </p>
 </details>
 
-<br/>
 
-**6.	Create the new busybox pod, exec into the pod, and check the contents of the /etc/secrets folder.**
+
+**6.	Create the new busybox Pod, exec into the Pod, and check the contents of the /etc/secrets folder.**
 
 <details><summary>Solution</summary>
 
@@ -135,7 +137,7 @@ cat password #should display pass123!
 </p>
 </details>
 
-<br/>
+
 
 ### Create TLS secret
 
@@ -156,9 +158,9 @@ kubectl get secrets
 </p>
 </details>
 
-<br/>
 
-**3.	Create the YAML file for a new busybox pod named 'busybox2' that never restarts. Mount the secret 'tls-secret' in the 'busybox2' pod using the mount path '/etc/tls-certs'. The pod should execute the command 'sleep 3600'. Create the pod.**
+
+**3.	Create the YAML file for a new busybox Pod named 'busybox2' that never restarts. Mount the secret 'tls-secret' in the 'busybox2' Pod using the mount path '/etc/tls-certs'. The Pod should execute the command 'sleep 3600'. Create the Pod.**
 
 <details><summary>Solution</summary>
 
@@ -200,9 +202,9 @@ kubectl apply -f busybox2.yaml
 </p>
 </details>
 
-<br/>
 
-**4.	Exec into the pod and check the '/etc/tls-certs' folder**
+
+**4.	Exec into the Pod and check the '/etc/tls-certs' folder**
 
 <details><summary>Solution</summary>
 
@@ -216,4 +218,3 @@ ls #should display the key and the cert file
 </p>
 </details>
 
-<br/>

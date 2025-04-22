@@ -1,5 +1,7 @@
 ## Understand ServiceAccounts
 
+* [Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ "Service Accounts")
+
 **1.	Create a ServiceAccount named 'my-sa'**
 
 <details><summary>Solution</summary>
@@ -12,9 +14,9 @@ kubectl create sa my-sa
 </p>
 </details>
 
-<br/>
 
-**2.	Create an nginx pod and assign the 'my-sa' ServiceAccount to it.**
+
+**2.	Create an nginx Pod and assign the 'my-sa' ServiceAccount to it.**
 
 <details><summary>Solution</summary>
 
@@ -51,9 +53,9 @@ kubectl describe pod nginx | grep -i "Service Account" #should display 'my-sa'
 </p>
 </details>
 
-<br/>
 
-**3.	Exec into the nginx pod and navigate to the folder that contains the token associated with the 'my-sa' ServiceAccount. Display the contents of the token file.**
+
+**3.	Exec into the nginx Pod and navigate to the folder that contains the token associated with the 'my-sa' ServiceAccount. Display the contents of the token file.**
 
 <details><summary>Solution</summary>
 
@@ -67,7 +69,7 @@ cat token
 </p>
 </details>
 
-<br/>
+
 
 
 **4.	Create another ServiceAccount named 'pod-lister-sa'**
@@ -83,9 +85,9 @@ kubectl get sa
 </p>
 </details>
 
-<br/>
 
-**5.	Create a Role named 'pod-lister' that grants permission to list pods**
+
+**5.	Create a Role named 'pod-lister' that grants permission to list Pods**
 
 <details><summary>Solution</summary>
 
@@ -112,7 +114,7 @@ kubectl get roles
 </p>
 </details>
 
-<br/>
+
 
 **6.	Create a RoleBinding named 'sa-role-binding' that binds the 'pod-lister' Role to the ServiceAccount 'pod-lister-sa**
 
@@ -145,9 +147,9 @@ kubectl get rolebindings
 </p>
 </details>
 
-<br/>
 
-**7.	Create a new nginx pod named 'nginx2' and assign the 'pod-lister-sa' ServiceAccount to it**
+
+**7.	Create a new nginx Pod named 'nginx2' and assign the 'pod-lister-sa' ServiceAccount to it**
 
 <details><summary>Solution</summary>
 
@@ -179,4 +181,3 @@ kubectl describe pod nginx | grep -i "Service Account" #should display 'pod-list
 </p>
 </details>
 
-<br/>
