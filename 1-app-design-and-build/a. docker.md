@@ -2,7 +2,7 @@
 
 The exam expects you to be comfortable using both Docker and Podman. These two are syntactically quite similar. Feel free to solve the following exercises using either Docker or Podman. <br>
 
-**1. Build a Docker image using the following Dockerfile and tag it as <code> my-username/alpine </code>**
+**1. Build a Docker image using the following Dockerfile and tag it as <code>my-username/alpine</code>**
 
 ```YAML
 FROM alpine:latest 
@@ -33,7 +33,7 @@ docker image list
 </p>
 </details>
 
-**3. Create a container using the <code> my-username/alpine </code> image, run it in the background, and name it <code> my-container </code>**
+**3. Create a container using the <code>my-username/alpine</code> image, run it in the background, and name it <code>my-container</code>**
 
 <details><summary>Solution</summary>
 <p>
@@ -147,7 +147,7 @@ docker image rm my-username/alpine:latest
 </details>
 
 
-**12. Load the deleted image from the archive file and retag it as <code> my-username/alpine:v1 </code>**
+**12. Load the deleted image from the archive file and retag it as <code>my-username/alpine:v1</code>**
 
 <details><summary>Solution</summary>
 <p>

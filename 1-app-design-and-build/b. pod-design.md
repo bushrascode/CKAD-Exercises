@@ -9,7 +9,7 @@
 
 ### Pods
 
-**1. Create a new pod using the busybox image and display all pods in the default namespace**
+**1. Create a new pod using the <code>busybox</code> image and display all pods in the default namespace**
 
 <details><summary>Solution</summary>
 <p>
@@ -21,9 +21,9 @@ kubectl get pods #the namespace is 'default' unless specified otherwise
 
 </p>
 </details>
-<br>
 
-**2. Create a new Pod using the busybox image with a restart policy of 'Never' and display all pods**
+
+**2. Create a new Pod using the <code>busybox</code> image and set <code>restartPolicy</code> to <code>Never</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -35,7 +35,7 @@ kubectl get pods
 
 </p>
 </details>
-<br>
+
 
 **3. Create an nginx pod and save its logs to app.log**
 
@@ -49,9 +49,9 @@ kubectl logs nginx > app.log
 
 </p>
 </details>
-<br>
 
-**4. Execute into the nginx pod and list all environment variables**
+
+**4. Execute into the <code>nginx</code> pod and list all environment variables**
 
 <details><summary>Solution</summary>
 <p>
@@ -62,9 +62,9 @@ kubectl exec -it nginx /bin/bash -- env
 
 </p>
 </details>
-<br>
 
-**5. Show the nginx pod's IP**
+
+**5. Show the <code>nginx</code> pod's IP**
 
 <details><summary>Solution</summary>
 <p>
@@ -76,9 +76,9 @@ kubectl describe pods nginx | grep -i IP #solution 2
 
 </p>
 </details>
-<br>
 
-**6. Force the nginx pod to be deleted immediately**
+
+**6. Force the <code>nginx</code> pod to be deleted immediately**
 
 <details><summary>Solution</summary>
 <p>
@@ -89,9 +89,9 @@ kubectl delete pods nginx --force --grace-period=0
 
 </p>
 </details>
-<br>
 
-**7. Create a new nginx pod. Then, create a busybox pod that sends a request to the nginx pod using wget {podIp}:80**
+
+**7. Create a new <code>nginx</code> pod. Then, create a <code>busybox</code> pod that sends a request to the <code>nginx</code> pod using <code>wget {podIp}:80</code>**
 
 <details><summary>Solution</summary>
 <p>
@@ -104,9 +104,9 @@ kubectl run busybox --image=busybox --restart=Never -it --rm -- wget -O- {podIp}
 
 </p>
 </details>
-<br>
 
-**8. Create a YAML config file for an nginx pod without applying it. Name the container nginx-container. Then, create the pod**
+
+**8. Create a YAML config file for an <code>nginx</code> pod without applying it. Name the container <code>nginx-container</code>. Then, create the pod**
 
 <details><summary>Solution</summary>
 <p>
@@ -140,7 +140,7 @@ kubectl describe pod nginx | grep -i nginx-container
 
 </p>
 </details>
-<br>
+
 
 ### ReplicaSets
 
@@ -179,7 +179,7 @@ kubectl get pods
 
 </p>
 </details>
-<br>
+
 
 **2. Create a ReplicaSet from the following file. Do you notice any errors? Can they be fixed?**
 
@@ -208,7 +208,7 @@ spec:
 
 </p>
 </details>
-<br>
+
 
 <details><summary>Solution</summary>
 <p>
@@ -235,7 +235,7 @@ spec:
 
 </p>
 </details>
-<br>
+
 
 ### Deployments
 
@@ -250,7 +250,7 @@ kubectl create ns production
 
 </p>
 </details>
-<br>
+
 
 **2. Set the default namespace to production for the current Kubernetes context**
 
@@ -263,7 +263,7 @@ kubectl config set-context --current --namespace=production
 
 </p>
 </details>
-<br>
+
 
 **3. Create the YAML file for a deployment named 'nginx' that uses the nginx:1.27 image with 2 replicas. Do not create the deployment yet**
 
@@ -276,7 +276,7 @@ kubectl create deploy nginx --image=nginx:1.27 --replicas=2 --dry-run=client -o 
 
 </p>
 </details>
-<br>
+
 
 **4. Create the deployment in the production namespace, list all the pods in that namespace**
 
@@ -292,7 +292,7 @@ kubectl get pods
 
 </p>
 </details>
-<br>
+
 
 **5. Scale the deployment to 4 replicas and display all the pods in the namespace**
 
@@ -306,7 +306,7 @@ kubectl get pods
 
 </p>
 </details>
-<br>
+
 
 **6. Set the image of the deployment to nginx:2.224 and show the status of the deployment. Why does the deployment fail?**
 
@@ -326,7 +326,7 @@ kubectl describe pod {podName}
 
 </p>
 </details>
-<br>
+
 
 **7. Show all revisions of the deployment and revert it to a working one**
 
@@ -343,7 +343,7 @@ kubectl get pods # all pods should be running
 ```
 </p>
 </details>
-<br>
+
 
 ### Jobs
 
@@ -357,7 +357,7 @@ kubectl config set-context --current --namespace=default
 ```
 </p>
 </details>
-<br>
+
 
 **2. Create a YAML file for a job that uses the busybox image and executes the following command: ["sh", "-c", "echo I do my job...; sleep 10; echo Done!"]**
 
@@ -389,7 +389,7 @@ status: {}
 ```
 </p>
 </details>
-<br>
+
 
 **3. Create the Job and watch its status**
 
@@ -402,7 +402,7 @@ kubectl get jobs --watch
 ```
 </p>
 </details>
-<br>
+
 
 **4. Delete the job and recreate it, ensuring that if the job is not completed within 10 seconds, the pods will terminate**
 
@@ -438,7 +438,7 @@ status: {}
 ```
 </p>
 </details>
-<br>
+
 
 **5. Delete the previously created job, change the deadline to 1 minute, and recreate it with completions set to 4 and parallelism set to 2**
 
@@ -476,7 +476,7 @@ status: {}
 ```
 </p>
 </details>
-<br>
+
 
 **6. Check the logs of one of the pods**
 
@@ -489,7 +489,7 @@ kubectl log {podName}
 ```
 </p>
 </details>
-<br>
+
 
 ### CronJobs
 
@@ -532,7 +532,7 @@ kubectl apply -f cronjob.yaml
 
 </p>
 </details>
-<br>
+
 
 **2. If the job misses its scheduled time by 60 seconds, ensure that the cronjob skips the current iteration**
 
@@ -566,7 +566,7 @@ status: {}
 ```
 </p>
 </details>
-<br>
+
 
 **3. Create another cronjob that uses the busybox image and executes the following command every Friday: ["sh", "-c", "echo Today is Friday!"]**
 
@@ -608,7 +608,7 @@ kubectl apply -f fridaycronjob.yaml
 
 </p>
 </details>
-<br>
+
 
 **4. Create a job from the cronjob created in step 3**
 <details><summary>Solution</summary>
@@ -620,7 +620,7 @@ kubectl create job jobfromcronjob --from=cronjob/fridaycronjob
 
 </p>
 </details>
-<br>
+
 
 ### Multi-container Pod design patterns
 
@@ -655,7 +655,7 @@ kubectl get pods
 ```
 </p>
 </details>
-<br>
+
 
 **2. Create a pod with 2 containers, both using the busybox image and executing the command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']. Exec into the first container and list all environment variables**
 
@@ -688,4 +688,3 @@ kubectl exec -it busybox --container=busybox -- env
 ```
 </p>
 </details>
-<br>
