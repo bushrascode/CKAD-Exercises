@@ -2,7 +2,7 @@
 
 The exam expects you to be comfortable using both Docker and Podman. These two are syntactically quite similar. Feel free to solve the following exercises using either Docker or Podman. <br>
 
-**1. Build an image using the following Dockerfile and tag it as my-username/alpine**
+###### 1. Build an image using the following Dockerfile and tag it as my-username/alpine
 
 <code>FROM alpine:latest <br>
 CMD ["sh", "-c", "echo 'Container is running...'; sleep 3600"]</code>
@@ -18,9 +18,8 @@ docker build -t my-username/alpine .
 
 </p>
 </details>
-<br>
 
-**2. List all Docker images**
+###### 2. List all Docker images
 
 <details><summary>Solution</summary>
 <p>
@@ -31,9 +30,9 @@ docker image list
 
 </p>
 </details>
-<br>
 
-**3. Create a container using the my-username/alpine image, run it in the background, and name it my-container**
+
+###### 3. Create a container using the my-username/alpine image, run it in the background, and name it my-container
 
 <details><summary>Solution</summary>
 <p>
@@ -44,9 +43,8 @@ docker run -d --name=my-container my-username/alpine:latest
 
 </p>
 </details>
-<br>
 
-**4. Show all running containers**
+###### 4. Show all running containers
 
 <details><summary>Solution</summary>
 <p>
@@ -57,9 +55,8 @@ docker ps
 
 </p>
 </details>
-<br>
 
-**5. Write the logs of the container to logs.txt**
+###### 5. Write the logs of the container to logs.txt
 
 <details><summary>Solution</summary>
 <p>
@@ -70,9 +67,8 @@ docker logs my-container > logs.txt
 
 </p>
 </details>
-<br>
 
-**6. Stop the container**
+###### 6. Stop the container
 
 <details><summary>Solution</summary>
 <p>
