@@ -9,7 +9,7 @@
 
 ### Pods
 
-**1. Create a new pod using the <code>busybox</code> image and display all pods in the default namespace**
+**1. Create a new Pod using the <code>busybox</code> image and display all Pods in the default namespace**
 
 <details><summary>Solution</summary>
 <p>
@@ -37,7 +37,7 @@ kubectl get pods
 </details>
 
 
-**3. Create an nginx pod and save its logs to app.log**
+**3. Create an nginx Pod and save its logs to app.log**
 
 <details><summary>Solution</summary>
 <p>
@@ -51,7 +51,7 @@ kubectl logs nginx > app.log
 </details>
 
 
-**4. Execute into the <code>nginx</code> pod and list all environment variables**
+**4. Execute into the <code>nginx</code> Pod and list all environment variables**
 
 <details><summary>Solution</summary>
 <p>
@@ -64,7 +64,7 @@ kubectl exec -it nginx /bin/bash -- env
 </details>
 
 
-**5. Show the <code>nginx</code> pod's IP**
+**5. Show the <code>nginx</code> Pod's IP**
 
 <details><summary>Solution</summary>
 <p>
@@ -78,7 +78,7 @@ kubectl describe pods nginx | grep -i IP #solution 2
 </details>
 
 
-**6. Force the <code>nginx</code> pod to be deleted immediately**
+**6. Force the <code>nginx</code> Pod to be deleted immediately**
 
 <details><summary>Solution</summary>
 <p>
@@ -91,7 +91,7 @@ kubectl delete pods nginx --force --grace-period=0
 </details>
 
 
-**7. Create a new <code>nginx</code> pod. Then, create a <code>busybox</code> pod that sends a request to the <code>nginx</code> pod using <code>wget {podIp}:80</code>**
+**7. Create a new <code>nginx</code> Pod. Then, create a <code>busybox</code> Pod that sends a request to the <code>nginx</code> Pod using <code>wget {podIp}:80</code>**
 
 <details><summary>Solution</summary>
 <p>
@@ -106,7 +106,7 @@ kubectl run busybox --image=busybox --restart=Never -it --rm -- wget -O- {podIp}
 </details>
 
 
-**8. Create a YAML config file for an <code>nginx</code> pod without applying it. Name the container <code>nginx-container</code>. Then, create the pod**
+**8. Create a YAML config file for an <code>nginx</code> Pod without applying it. Name the container <code>nginx-container</code>. Then, create the Pod**
 
 <details><summary>Solution</summary>
 <p>
@@ -144,7 +144,7 @@ kubectl describe pod nginx | grep -i nginx-container
 
 ### ReplicaSets
 
-**1. Create a ReplicaSet with 3 replicas using the wordpress image**
+**1. Create a ReplicaSet with 3 replicas using the <code>wordpress</code> image**
 
 <details><summary>Solution</summary>
 <p>
@@ -239,7 +239,7 @@ spec:
 
 ### Deployments
 
-**1. Create a namespace called 'production'**
+**1. Create a namespace called <code>production</code>**
 
 <details><summary>Solution</summary>
 <p>
@@ -252,7 +252,7 @@ kubectl create ns production
 </details>
 
 
-**2. Set the default namespace to production for the current Kubernetes context**
+**2. Set the namespace to <code>production</code> for the current Kubernetes context**
 
 <details><summary>Solution</summary>
 <p>
@@ -265,7 +265,7 @@ kubectl config set-context --current --namespace=production
 </details>
 
 
-**3. Create the YAML file for a deployment named 'nginx' that uses the nginx:1.27 image with 2 replicas. Do not create the deployment yet**
+**3. Create the YAML file for a Deployment named <code>nginx</code> that uses the <code>nginx:1.27</code> image with 2 replicas. Do not create the Deployment yet**
 
 <details><summary>Solution</summary>
 <p>
@@ -278,7 +278,7 @@ kubectl create deploy nginx --image=nginx:1.27 --replicas=2 --dry-run=client -o 
 </details>
 
 
-**4. Create the deployment in the production namespace, list all the pods in that namespace**
+**4. Create the deployment in the <code>production</code> namespace, list all the Pods in that namespace**
 
 <details><summary>Solution</summary>
 <p>
@@ -294,7 +294,7 @@ kubectl get pods
 </details>
 
 
-**5. Scale the deployment to 4 replicas and display all the pods in the namespace**
+**5. Scale the deployment to 4 replicas and display all the Pods in the namespace**
 
 <details><summary>Solution</summary>
 <p>
@@ -308,7 +308,7 @@ kubectl get pods
 </details>
 
 
-**6. Set the image of the deployment to nginx:2.224 and show the status of the deployment. Why does the deployment fail?**
+**6. Set the image of the deployment to <code>nginx:2.224</code> and show the status of the deployment. Why does the deployment fail?**
 
 <details><summary>Solution</summary>
 <p>
@@ -347,7 +347,7 @@ kubectl get pods # all pods should be running
 
 ### Jobs
 
-**1. Switch back to the default namespace**
+**1. Switch back to the <code>default</code> namespace**
 
 <details><summary>Solution</summary>
 <p>
@@ -359,7 +359,7 @@ kubectl config set-context --current --namespace=default
 </details>
 
 
-**2. Create a YAML file for a job that uses the busybox image and executes the following command: ["sh", "-c", "echo I do my job...; sleep 10; echo Done!"]**
+**2. Create a YAML file for a job that uses the <code>busybox</code> image and executes the following command: <code>["sh", "-c", "echo I do my job...; sleep 10; echo Done!"]</code>**
 
 <details><summary>Solution</summary>
 <p>
@@ -404,7 +404,7 @@ kubectl get jobs --watch
 </details>
 
 
-**4. Delete the job and recreate it, ensuring that if the job is not completed within 10 seconds, the pods will terminate**
+**4. Delete the job and recreate it, ensuring that if the job is not completed within 10 seconds, the Pods will terminate**
 
 <details><summary>Solution</summary>
 <p>
@@ -440,7 +440,7 @@ status: {}
 </details>
 
 
-**5. Delete the previously created job, change the deadline to 1 minute, and recreate it with completions set to 4 and parallelism set to 2**
+**5. Delete the previously created job, change the deadline to 1 minute, and recreate it with <code>completions</code> set to 4 and <code>parallelism</code> set to 2**
 
 <details><summary>Solution</summary>
 <p>
@@ -478,7 +478,7 @@ status: {}
 </details>
 
 
-**6. Check the logs of one of the pods**
+**6. Check the logs of one of the Pods**
 
 <details><summary>Solution</summary>
 <p>
@@ -493,7 +493,7 @@ kubectl log {podName}
 
 ### CronJobs
 
-**1. Create a cronjob that uses the busybox image and executes the following command once every minute: ["sh", "-c", "echo One minute has passed!"]**
+**1. Create a CronJob that uses the <code>busybox</code> image and executes the following command once every minute: <code>["sh", "-c", "echo One minute has passed!"]</code>**
 
 <details><summary>Solution</summary>
 <p>
@@ -534,7 +534,7 @@ kubectl apply -f cronjob.yaml
 </details>
 
 
-**2. If the job misses its scheduled time by 60 seconds, ensure that the cronjob skips the current iteration**
+**2. If the Job misses its scheduled time by 60 seconds, ensure that the CronJob skips the current iteration**
 
 <details><summary>Solution</summary>
 <p>
@@ -568,7 +568,7 @@ status: {}
 </details>
 
 
-**3. Create another cronjob that uses the busybox image and executes the following command every Friday: ["sh", "-c", "echo Today is Friday!"]**
+**3. Create another CronJob that uses the <code>busybox</code> image and executes the following command every Friday: <code>["sh", "-c", "echo Today is Friday!"]</code>**
 
 <details><summary>Solution</summary>
 <p>
@@ -610,7 +610,7 @@ kubectl apply -f fridaycronjob.yaml
 </details>
 
 
-**4. Create a job from the cronjob created in step 3**
+**4. Create a Job from the CronJob created in step 3**
 <details><summary>Solution</summary>
 <p>
 
@@ -624,7 +624,7 @@ kubectl create job jobfromcronjob --from=cronjob/fridaycronjob
 
 ### Multi-container Pod design patterns
 
-**1. Create a pod with 2 containers: one init container that uses the busybox image and executes the following command: ["sh", "-c", "echo 'Some things need to be initialized before the main container starts';", "sleep 20"], the second container should be named 'main-app' and use the image: nginx.**
+**1. Create a Pod with 2 containers: one init container that uses the <code>busybox</code> image and executes the following command: <code>["sh", "-c", "echo 'Some things need to be initialized before the main container starts';", "sleep 20"]</code>, the second container should be named <code>main-app</code> and use the image: <code>nginx</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -657,7 +657,7 @@ kubectl get pods
 </details>
 
 
-**2. Create a pod with 2 containers, both using the busybox image and executing the command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']. Exec into the first container and list all environment variables**
+**2. Create a Pod with 2 containers, both using the <code>busybox</code> image and executing the command: <code>['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']</code>. Exec into the first container and list all environment variables**
 
 <details><summary>Solution</summary>
 <p>

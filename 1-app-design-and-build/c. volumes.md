@@ -3,7 +3,7 @@
 * [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/ "Persistent Volumes")
 * [Ephemeral Volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/ "Ephemeral Volumes")
 
-**1. Create a pod with 2 containers, one called 'writer' and one called 'reader'. Both containers should use the busybox image. The pod should have an ephemeral volume called 'shared-volume'. Both containers will mount this volume at the path /data. Additionally, the 'writer' container will execute the following command: echo 'Hello from the writer container!' > /data/message.txt && sleep 3600. Create the pod, then exec into the 'reader' container and check if the message.txt file is created**
+**1. Create a Pod with 2 containers, named <code>writer</code> and <code>reader</code>. Both containers should use the <code>busybox</code> image. The Pod should have an ephemeral volume named <code>shared-volume</code>. Both containers will mount this volume at the path <code>/data</code>. Additionally, the <code>writer</code> container should execute the following command: <code>echo 'Hello from the writer container!' > /data/message.txt && sleep 3600</code>. Create the Pod, then exec into the <code>reader</code> container and check if the message.txt file is created**
 
 <details><summary>Solution</summary>
 <p>
@@ -46,10 +46,10 @@ cd data
 </details>
 <br>
 
-**2.	Create a pod that mounts a persistent volume (PV) using a persistent volume claim (PVC). The data will persist even if the pod is deleted.**
-1. Create a persistent volume with access mode ReadWriteOnce and 1Gi storage. Specify /mnt/data as the hostPath
-2. Create a persistent volume claim with access mode ReadWriteOnce, storageClass set to "", requesting 1Gi storage, and bound to the volume created in a)
-3. Create a pod that uses the busybox image and mounts the volume referenced by the persistent volume claim. The mounted volume should be called 'my-storage'. The container will mount the volume at the path /data and execute the following command: echo 'Hello, Persistent Volume!' > /data/message.txt && sleep 3600. Create the pod's YAML, then create the pod. Next, change the command to "echo 'Hello, Persistent Volume!' && sleep 3600", delete the pod itself, and create it again. Exec into the pod and check if yo stil find the message.txt file in the /data folder
+**2.	Create a Pod that mounts a Persistent Volume (PV) using a Persistent Volume Claim (PVC). The data will persist even if the Pod is deleted.**
+1. Create a Persistent Volume with access mode <code>ReadWriteOnce</code> and <code>1Gi</code> storage. Specify <code>/mnt/data</code> as the <code>hostPath</code>
+2. Create a Persistent Volume claim with access mode <code>ReadWriteOnce</code>, <code>storageClass</code> set to <code>""</code>, requesting <code>1Gi</code> storage, and bound to the volume created in 1.
+3. Create a Pod that uses the <code>busybox</code> image and mounts the volume referenced by the Persistent Volume claim. The mounted volume should be named <code>my-storage</code>. The container will mount the volume at the path <code>/data</code> and execute the following command: <code>echo 'Hello, Persistent Volume!' > /data/message.txt && sleep 3600</code>. Create the Pod's YAML, then create the Pod. Next, change the command to <code>"echo 'Hello, Persistent Volume!' && sleep 3600"</code>, delete the Pod itself, and create it again. Exec into the Pod and check if yo stil find the message.txt file in the <code>/data</code> folder
 
 <details><summary>Solution</summary>
 <p>
