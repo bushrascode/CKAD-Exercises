@@ -5,7 +5,7 @@
 
 ### Labels
 
-**1. Create a <code>wordpress</code> Pod and add the following labels: <code>environment=production</code> and <code>role=website-builder</code>. Then, create an <code>nginx</code> Pod and label it with <code>environment=pre-production</code>**
+**1. Create a <pre>wordpress</pre>Pod and add the following labels: <code>environment=production</code> and <code>role=website-builder</code>. Then, create an <code>nginx</code> Pod and label it with <code>environment=pre-production</code>**
 
 <details><summary>Solution</summary>
 <p>
