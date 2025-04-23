@@ -21,7 +21,7 @@ kubectl describe pod nginx | grep -i "Service Account" #should display 'default'
 
 
 
-**2. Disable the 'ServiceAccount' admission controller. Note: it may take a few minutes for the cluster to restart.**
+**2. Disable the <code>ServiceAccount</code> admission controller. Note: it may take a few minutes for the cluster to restart.**
 
 <details><summary>Solution</summary>
 

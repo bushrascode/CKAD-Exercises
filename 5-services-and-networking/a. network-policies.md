@@ -2,7 +2,7 @@
 
 * [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/ "Network Policies")
 
-**1. Create an nginx Pod**
+**1. Create an <code>nginx</code> Pod**
 
 <details><summary>Solution</summary>
 
