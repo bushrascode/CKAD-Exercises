@@ -1,8 +1,8 @@
 ## Implement probes and health checks
 
-* [Api Deprecations](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/ "Api Deprecations")
+* [Probes And Health Checks](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/ "Probes And Health Checks")
 
-**1. Create a pod using the wordpress image. Implement a readiness probe that executes the command 'cat readme.html'. The kubelet should wait 15 seconds before performing the first check, then run the check every 5 seconds. When did the pod's status change to READY?**
+**1. Create a pod using the <code>wordpress</code> image. Implement a Readiness Probe that executes the command <code>cat readme.html</code>. The kubelet should wait 15 seconds before performing the first check, then run the check every 5 seconds. When did the pod's status change to READY?**
 
 <details><summary>Solution</summary>
 
@@ -44,7 +44,7 @@ The Pod's status changes to READY when the readiness probe succeeds
 
 <br/>
 
-**2.	Create a Pod using the equivalent/health_check_nginx image. Implement a liveness probe that calls the /health-check endpoint using the HTTP GET method on port 80. The kubelet should wait 10 seconds before performing the first check, and then execute the check every 5 seconds.**
+**2.	Create a Pod using the <code>equivalent/health_check_nginx</code> image. Implement a Liveness Probe that calls the <code>/health-check</code> endpoint using the HTTP GET method on port 80. The kubelet should wait 10 seconds before performing the first check, and then execute the check every 5 seconds.**
 
 <details><summary>Solution</summary>
 

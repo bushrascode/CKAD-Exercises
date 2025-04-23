@@ -11,7 +11,7 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 
 </p>
 </details>
-<br>
+
 
 **2. List all the charts in the repo**
 
@@ -24,9 +24,9 @@ helm search repo bitnami
 
 </p>
 </details>
-<br>
 
-**3.	Search for the Jenkins chart in the repo**
+
+**3.	Search for the <code>jenkins</code> chart in the repo**
 
 <details><summary>Solution</summary>
 <p>
@@ -37,9 +37,9 @@ helm search repo bitnami/jenkins
 
 </p>
 </details>
-<br>
 
-**4. Show all values of the Jenkins chart**
+
+**4. Show all values of the <code>jenkins</code> chart**
 
 <details><summary>Solution</summary>
 <p>
@@ -50,9 +50,9 @@ helm show values bitnami/jenkins
 
 </p>
 </details>
-<br>
 
-**5.	Show all versions of the Jenkins chart**
+
+**5.	Show all versions of the <code>jenkins</code> chart**
 
 <details><summary>Solution</summary>
 <p>
@@ -63,9 +63,9 @@ helm search repo bitnami/jenkins --versions
 
 </p>
 </details>
-<br>
 
-**6.	Install the Jenkins chart with chart version 12.0.0 and 4 replicas. Then, list all pods.**
+
+**6.	Install the <code>jenkins</code> chart with chart version <code> 12.0.0</code>  and 4 Replicas. Then, list all Pods.**
 
 <details><summary>Solution</summary>
 <p>
@@ -77,7 +77,7 @@ kubectl get pods
 
 </p>
 </details>
-<br>
+
 
 **7.	List all releases, including broken ones**
 
@@ -90,9 +90,9 @@ helm ls -a
 
 </p>
 </details>
-<br>
 
-**8.	Upgrade the Jenkins release to version 13.0.0**
+
+**8.	Upgrade the <code>jenkins</code> release to version <code> 13.0.0</code>**
 
 <details><summary>Solution</summary>
 <p>
@@ -103,9 +103,9 @@ helm upgrade jenkins bitnami/jenkins --version 13.0.0
 
 </p>
 </details>
-<br>
 
-**9.	Uninstall the Jenkins release**
+
+**9.	Uninstall the <code>jenkins</code> release**
 
 <details><summary>Solution</summary>
 <p>
@@ -116,10 +116,10 @@ helm uninstall jenkins
 
 </p>
 </details>
-<br>
 
 
-**10.	Pull the latest Redis chart to your home folder and unzip it**
+
+**10.	Pull the latest <code> redis</code>  chart to your home folder and unzip it**
 
 <details><summary>Solution</summary>
 <p>
@@ -132,7 +132,7 @@ helm pull bitnami/redis --untar
 
 </p>
 </details>
-<br>
+
 
 **11.	Show the environment variables that Helm uses for configuration**
 
@@ -145,4 +145,3 @@ helm env
 
 </p>
 </details>
-<br>

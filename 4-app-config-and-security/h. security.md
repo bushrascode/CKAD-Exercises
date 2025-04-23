@@ -2,7 +2,7 @@
 
 * [Security Contexts](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/ "Security Contexts")
 
-**1.	Create a busybox Pod named 'busybox' that never restarts and runs as a non-root user. Set 'runAsUser: 1000', 'runAsGroup: 3000', and 'fsGroup: 2000'. Set 'allowPrivilegeEscalation: false' at the container level. The container should execute the command: 'sleep 3600'**
+**1.	Create a busybox Pod named <code>busybox</code> that never restarts and runs as a non-root user. Set <code>runAsUser: 1000</code>, <code>runAsGroup: 3000</code>, and <code>fsGroup: 2000</code>. Set <code>allowPrivilegeEscalation: false</code> at the container level. The container should execute the command: <code>sleep 3600</code>**
 
 <details><summary>Solution</summary>
 
@@ -45,7 +45,7 @@ kubectl get pods
 
 
 
-**2.	Create another busybox Pod named 'busybox2'. The container should execute the command 'sleep 3600' and be configured with the Linux capabilities "NET_ADMIN" and "SYS_TIME"**
+**2.	Create another <code>busybox</code> Pod named <code>busybox2</code>. The container should execute the command <code>sleep 3600</code> and be configured with the Linux capabilities <code>NET_ADMIN</code> and <code>SYS_TIME</code>**
 
 <details><summary>Solution</summary>
 

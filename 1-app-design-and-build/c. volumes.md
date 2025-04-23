@@ -44,7 +44,7 @@ cd data
 ```
 </p>
 </details>
-<br>
+
 
 **2.	Create a Pod that mounts a Persistent Volume (PV) using a Persistent Volume Claim (PVC). The data will persist even if the Pod is deleted.**
 1. Create a Persistent Volume with access mode <code>ReadWriteOnce</code> and <code>1Gi</code> storage. Specify <code>/mnt/data</code> as the <code>hostPath</code>
@@ -121,4 +121,3 @@ cd data
 
 </p>
 </details>
-<br>

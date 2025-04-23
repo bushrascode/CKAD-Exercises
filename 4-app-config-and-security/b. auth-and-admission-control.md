@@ -5,7 +5,7 @@
 
 ### Admission controllers
 
-**1. Create a Pod using the nginx image. Which service account is associated with the Pod?**
+**1. Create a Pod using the <code>nginx</code> image. Which ServiceAccount is associated with the Pod?**
 
 <details><summary>Solution</summary>
 
@@ -21,7 +21,7 @@ kubectl describe pod nginx | grep -i "Service Account" #should display 'default'
 
 
 
-**2. Disable the ServiceAccount admission controller. Note: it may take a few minutes for the cluster to restart**
+**2. Disable the 'ServiceAccount' admission controller. Note: it may take a few minutes for the cluster to restart**
 
 <details><summary>Solution</summary>
 
@@ -38,7 +38,7 @@ Save the file and wait for the cluster to restart
 
 
 
-**3. Create another Pod using the nginx image. Which service account is associated with the new Pod?**
+**3. Create another Pod using the <code>nginx</code> image. Which service account is associated with the new Pod?**
 
 <details><summary>Solution</summary>
 
@@ -56,7 +56,7 @@ kubectl describe pod nginx2 | grep -i "Service Account" #should return nothing
 
 ### Roles and RoleBindings
 
-**1. Create a namespace named 'test-roles'**
+**1. Create a namespace named <code>test-roles</code>**
 
 <details><summary>Solution</summary>
 
@@ -87,7 +87,7 @@ kubectl config set-context --current --namespace=test-roles
 
 
 
-**3.	Create the 'deployment-manager' Role in the 'test-roles' namespace  that allows the following operations on Deployments: get, list, watch, create, and update**
+**3.	Create the <code>deployment-manager</code> Role in the <code>test-roles</code> namespace  that allows the following operations on Deployments: <code>get, list, watch, create,</code> and <code>update</code>**
 
 <details><summary>Solution</summary>
 
@@ -115,7 +115,7 @@ kubectl get roles
 
 
 
-**4.	Create the 'deployment-manager-sa' ServiceAccount in the 'test-roles' namespace. Use the imperative command to create the ServiceAccount**
+**4.	Create the <code>deployment-manager-sa</code> ServiceAccount in the <code>test-roles</code> namespace. Use the imperative command to create the ServiceAccount**
 
 <details><summary>Solution</summary>
 
@@ -131,7 +131,7 @@ kubectl get sa
 
 
 
-**5.	Create the 'deployment-manager-binding' RoleBinding to bind the role 'deployment-manager' to the 'deployment-manager-sa' ServiceAccount**
+**5.	Create the <code>deployment-manager-binding</code> RoleBinding to bind the role <code>deployment-manager</code> to the <code>deployment-manager-sa</code> ServiceAccount**
 
 <details><summary>Solution</summary>
 

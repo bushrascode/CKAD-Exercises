@@ -2,7 +2,7 @@
 
 * [Services](https://kubernetes.io/docs/concepts/services-networking/service/ "Services")
 
-**1. Create an nginx Pod named 'nginx' in the default namespace and set containerPort=80. Expose it using a ClusterIP service named 'nginx-clusterip' on port 80. Then, list all services and endpoints in the default namespace. Next, create a busybox Pod that never restarts, exec into it, and send a request to the ClusterIP address of the nginx Pod**
+**1. Create an nginx Pod named <code>nginx</code> in the default namespace and set <code>containerPort=80</code>. Expose it using a ClusterIP service named <code>nginx-clusterip</code> on port 80. Then, list all services and endpoints in the default namespace. Next, create a <code>busybox</code> Pod that never restarts, exec into it, and send a request to the ClusterIP address of the <code>nginx</code> Pod**
 
 <details><summary>Solution</summary>
 
@@ -20,7 +20,7 @@ wget -O- {clusterIp} #should respond
 </details>
 
 
-**2. Create a Pod using the 'httpd:alpine' image and expose it via a NodePort service named 'httpd-nodeport' on node port 30001, setting both the port and targetPort to 80. Then, get the node the Pod is assigned to, display its IP address, and access the Pod using {NodeIP}:30001**
+**2. Create a Pod using the <code>httpd:alpine</code> image and expose it via a NodePort service named <code>httpd-nodeport</code> on node port 30001, setting both the port and targetPort to 80. Then, get the node the Pod is assigned to, display its IP address, and access the Pod using <code>{NodeIP}:30001</code>**
 
 <details><summary>Solution</summary>
 
@@ -62,7 +62,7 @@ curl {nodeIp}:30001 #should respond
 </details>
 
 
-**3. Create a Deployment using the nginx image with 2 replicas, and expose it via a NodePort service named 'nginx-nodeport' on port 20001, setting both the port and targetPort to 80. Were you able to successfully create the NodePort service? If any issues occurred, correct them accordingly.**
+**3. Create a Deployment using the <code>nginx</code> image with 2 Replicas, and expose it via a NodePort service named <code>nginx-nodeport</code> on port 20001, setting both the port and targetPort to 80. Were you able to successfully create the NodePort service? If any issues occurred, correct them accordingly.**
 
 <details><summary>Solution</summary>
 

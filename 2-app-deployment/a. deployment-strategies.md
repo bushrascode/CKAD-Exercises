@@ -4,7 +4,7 @@
 
 ### Blue/Green Deployment
 
-**1. Create the 'blue' deployment and a service to expose it by applying the following files:**
+**1. Create a <code>blue</code> Deployment and a Service to expose it by applying the following files:**
 
 <details><summary>Files</summary>
 <p>
@@ -58,7 +58,7 @@ spec:
 
 </p>
 </details>
-<br>
+
 
 <details><summary>Solution</summary>
 <p>
@@ -72,9 +72,9 @@ kubectl get svc #check if service is created
 
 </p>
 </details>
-<br>
 
-**2. Find the IP of the node where the nginx pod is running. Then, access the pod using the NodePort service you created by running: curl {nodeIP}:{nodePort}.**
+
+**2. Find the IP of the node where the <code>nginx</code> Pod is running. Then, access the Pod using the NodePort service you created by running: <code>curl {nodeIP}:{nodePort}</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -87,9 +87,9 @@ curl {nodeIp}:30008
 
 </p>
 </details>
-<br>
 
-**3. Create a YAML file for a deployment named 'green' that uses the nginx:1.27 image with 1 replica. Then, create the deployment.**
+
+**3. Create a YAML file for a Deployment named <code>green</code> that uses the <code>nginx:1.27</code> image with 1 Replica. Then, create the Deployment.**
 
 <details><summary>Solution</summary>
 <p>
@@ -125,9 +125,9 @@ spec:
 
 </p>
 </details>
-<br>
 
-**4. Update the NodePort service to point to the 'green' deployment instead of the 'blue' one**
+
+**4. Update the NodePort service to point to the <code>green</code> Deployment instead of the <code>blue</code> one**
 
 <details><summary>Solution</summary>
 
@@ -157,9 +157,9 @@ curl {nodeIp}:30008
 ```
 </p>
 </details>
-<br>
 
-**5. Delete the 'green' deployment, then try sending a request to the 'green' pod using the NodePort service**
+
+**5. Delete the <code>green</code> Deployment, then try sending a request to the <code>green</code> Pod using the NodePort service**
 
 <details><summary>Solution</summary>
 
@@ -169,9 +169,9 @@ curl {nodeIp}:30008 #should not respond
 ```
 </p>
 </details>
-<br>
 
-**6. Update the NodePort service to point back to the 'blue' deployment**
+
+**6. Update the NodePort service to point back to the <code>blue</code> Deployment**
 <details><summary>Solution</summary>
 
 node-port-service.yaml
@@ -200,11 +200,11 @@ curl {nodeIp}:30008 #should respond
 ```
 </p>
 </details>
-<br>
+
 
 ### Canary Deployment
 
-**1. Create the stable 'httpd' deployment and a service to expose it by applying the following files:**
+**1. Create the stable <code>httpd</code> Deployment and a service to expose it by applying the following files:**
 
 <details><summary>Files</summary>
 <p>
@@ -258,7 +258,7 @@ spec:
 
 </p>
 </details>
-<br>
+
 
 <details><summary>Solution</summary>
 <p>
@@ -272,9 +272,9 @@ kubectl get svc #check if service is created
 
 </p>
 </details>
-<br>
 
-**2.	Now you have to switch to a new version of the application that uses the caddy:alpine image. The transition should be gradual rather than immediate or automatic, using the Canary approach: <br>  &nbsp;&nbsp;&nbsp;&nbsp; a)	25% of requests should be directed to the new caddy:alpine image <br>  &nbsp;&nbsp;&nbsp;&nbsp; b)	75% of requests should continue to go to the old httpd image <br> &nbsp;&nbsp;&nbsp;&nbsp; c)	Ensure there are a total of 4 pods running**
+
+**2.	Now you have to switch to a new version of the application that uses the <code>caddy:alpine</code> image. The transition should be gradual rather than immediate or automatic, using the Canary approach: <br>  &nbsp;&nbsp;&nbsp;&nbsp; a)	25% of requests should be directed to the new <code>caddy:alpine</code> image <br>  &nbsp;&nbsp;&nbsp;&nbsp; b)	75% of requests should continue to go to the old <code>httpd</code> image <br> &nbsp;&nbsp;&nbsp;&nbsp; c)	Ensure there are a total of 4 Pods running**
 
 <details><summary>Solution</summary>
 <p>
@@ -317,9 +317,9 @@ kubectl apply -f canary-deployment.yaml
 </p>
 </p>
 </details>
-<br>
 
-**3. Get the ClusterIP. Then, create a busybox pod that hits the ClusterIP. Execute the request multiple times. The responses should come from different containers**
+
+**3. Get the ClusterIP. Then, create a <code>busybox</code> Pod that hits the ClusterIP. Execute the request multiple times. The responses should come from different containers**
 
 <details><summary>Solution</summary>
 <p>
@@ -331,4 +331,3 @@ kubectl run busybox --image=busybox --restart=Never -it --rm -- wget -O- {cluste
 
 </p>
 </details>
-<br>

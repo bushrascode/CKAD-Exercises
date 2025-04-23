@@ -1,6 +1,8 @@
 ## Network Policies
 
-**1. Create an nginx pod**
+* [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/ "Network Policies")
+
+**1. Create an nginx Pod**
 
 <details><summary>Solution</summary>
 
@@ -11,9 +13,9 @@ kubectl run nginx --image=nginx
 ```
 </p>
 </details>
-<br/>
 
-**2. Create a NetworkPolicy named 'nginx-netpol' that targets pods labeled with 'run: nginx'. This policy allows incoming traffic (ingress) on port 80 using the TCP protocol, but only from pods labeled with 'access: allowed'**
+
+**2. Create a NetworkPolicy named <code>nginx-netpol</code> that targets Pods labeled with <code>run: nginx</code>. This policy allows incoming traffic (ingress) on port 80 using the TCP protocol, but only from Pods labeled with <code>access: allowed</code>**
 
 <details><summary>Solution</summary>
 
@@ -47,9 +49,9 @@ kubectl get netpol
 ```
 </p>
 </details>
-<br/>
 
-**3. Get the IP address of the nginx pod. Then, create a busybox pod that never restarts and runs the command 'sleep 3600'. Exec into the busybox pod and send a request to the nginx pod. Is there a response to the request?**
+
+**3. Get the IP address of the <code>nginx</code> Pod. Then, create a <code>busybox</code> Pod that never restarts and runs the command <code>sleep 3600</code>. Exec into the <code>busybox</code> Pod and send a request to the <code>nginx</code> Pod. Is there a response to the request?**
 
 <details><summary>Solution</summary>
 
@@ -64,9 +66,9 @@ wget {nginxPodIp}:80 #should not respond
 ```
 </p>
 </details>
-<br/>
 
-**4. Label the busybox pod with access=allowed, then try again to send a request to the nginx pod from the busybox pod. Is there a response to the request?**
+
+**4. Label the <code>busybox</code> Pod with <code>access=allowed</code>, then try again to send a request to the <code>nginx</code> Pod from the <code>busybox</code> Pod. Is there a response to the request?**
 
 <details><summary>Solution</summary>
 
@@ -79,4 +81,3 @@ wget {nginxPodIp}:80 #should respond
 ```
 </p>
 </details>
-<br/>
