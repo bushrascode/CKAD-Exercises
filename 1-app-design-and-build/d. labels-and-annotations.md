@@ -5,7 +5,7 @@
 
 ### Labels
 
-**1. Create a <code>wordpress</code> Pod and add the following labels: <code>environment=production</code> and <code>role=website-builder</code>. Then, create an <code>nginx</code> Pod and label it with <code>environment=pre-production</code>**
+**1. Create a <code>wordpress</code> Pod and add the following labels: <code>environment=production</code> and <code>role=website-builder</code>. Then, create an <code>nginx</code> Pod and label it with <code>environment=pre-production</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -21,7 +21,7 @@ kubectl label pod nginx environment=pre-production
 </details>
 
 
-**2. Show all Pods where the environment is either <code>production</code> or <code>pre-production</code>**
+**2. Show all Pods where the environment is either <code>production</code> or <code>pre-production</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -34,7 +34,7 @@ kubectl get pods -l 'environment in (production, pre-production)'
 </details>
 
 
-**3. Show all Pods where the <code>run</code> label is set to <code>nginx</code>**
+**3. Show all Pods where the <code>run</code> label is set to <code>nginx</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -47,7 +47,7 @@ kubectl get pods -l run=nginx
 </details>
 
 
-**4. Show all Pods where the <code>run</code> label is not set to <code>nginx</code>**
+**4. Show all Pods where the <code>run</code> label is not set to <code>nginx</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -128,7 +128,7 @@ kubectl describe pod nginx
 </details>
 
 
-**2. Annotate the <code>nginx</code> Pod with <code>contact=test@mail.com</code> and <code>deployed-by="Test Actions"</code>**
+**2. Annotate the <code>nginx</code> Pod with <code>contact=test@mail.com</code> and <code>deployed-by="Test Actions"</code>.**
 
 <details><summary>Solution</summary>
 <p>

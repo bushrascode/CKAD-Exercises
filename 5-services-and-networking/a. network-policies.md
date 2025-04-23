@@ -15,7 +15,7 @@ kubectl run nginx --image=nginx
 </details>
 
 
-**2. Create a NetworkPolicy named <code>nginx-netpol</code> that targets Pods labeled with <code>run: nginx</code>. This policy allows incoming traffic (ingress) on port 80 using the TCP protocol, but only from Pods labeled with <code>access: allowed</code>**
+**2. Create a NetworkPolicy named <code>nginx-netpol</code> that targets Pods labeled with <code>run: nginx</code>. This policy allows incoming traffic (ingress) on port 80 using the TCP protocol, but only from Pods labeled with <code>access: allowed</code>.**
 
 <details><summary>Solution</summary>
 
