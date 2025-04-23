@@ -7,7 +7,7 @@
 
 ### Requests, Limits
 
-**1.	Create a <code>wordpress</code> Pod with resource requests set to 64Mi of memory and 0.2 CPU core, and limits set to 128Mi of memory and 0.5 CPU, applied at the container level**
+**1.	Create a <code>wordpress</code> Pod with resource requests set to 64Mi of memory and 0.2 CPU core, and limits set to 128Mi of memory and 0.5 CPU, applied at the container level.**
 
 <details><summary>Solution</summary>
 
@@ -47,7 +47,7 @@ status: {}
 
 
 
-**2.	Force the immediate deletion of the Pod**
+**2.	Force the immediate deletion of the Pod.**
 
 <details><summary>Solution</summary>
 
@@ -132,7 +132,7 @@ kubectl apply -f wordpress2.yaml #should display Forbidden error
 
 
 
-**3.	Delete the LimitRange**
+**3.	Delete the LimitRange.**
 
 <details><summary>Solution</summary>
 
@@ -149,7 +149,7 @@ kubectl delete limitrange cpu-resource-constraint
 
 ### Quotas
 
-**1. Create a namespace named <code>test-quota</code>**
+**1. Create a namespace named <code>test-quota</code>.**
 
 <details><summary>Solution</summary>
 
@@ -165,7 +165,7 @@ kubectl get ns
 
 
 
-**2.	Create a ResourceQuota that sets the following hard limits for the <code>test-quota</code> namespace: cpu: 5, memory: 5Gi, and Pods: 2**
+**2.	Create a ResourceQuota that sets the following hard limits for the <code>test-quota</code> namespace: cpu: 5, memory: 5Gi, and Pods: 2.**
 
 <details><summary>Solution</summary>
 
@@ -234,7 +234,7 @@ kubectl get pods -n test-quota #only 2 pods should be running
 
 
 
-**4.	Adjust the ResourceQuota so that all 3 Pods can run**
+**4.	Adjust the ResourceQuota so that all 3 Pods can run.**
 
 <details><summary>Solution</summary>
 

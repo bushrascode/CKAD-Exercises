@@ -81,7 +81,7 @@ kubectl apply -f car.yaml
 </details>
 <br/>
 
-**3. List all Car resources in the namespace**
+**3. List all Car resources in the namespace.**
 
 <details><summary>Solution</summary>
 

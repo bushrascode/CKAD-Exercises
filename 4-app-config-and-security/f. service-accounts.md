@@ -72,7 +72,7 @@ cat token
 
 
 
-**4.	Create another ServiceAccount named <code>pod-lister-sa</code>**
+**4.	Create another ServiceAccount named <code>pod-lister-sa</code>.**
 
 <details><summary>Solution</summary>
 
@@ -87,7 +87,7 @@ kubectl get sa
 
 
 
-**5.	Create a Role named <code>pod-lister</code> that grants permission to list Pods**
+**5.	Create a Role named <code>pod-lister</code> that grants permission to list Pods.**
 
 <details><summary>Solution</summary>
 
@@ -116,7 +116,7 @@ kubectl get roles
 
 
 
-**6.	Create a RoleBinding named <code>sa-role-binding</code> that binds the <code>pod-lister</code> Role to the ServiceAccount <code>pod-lister-sa</code>**
+**6.	Create a RoleBinding named <code>sa-role-binding</code> that binds the <code>pod-lister</code> Role to the ServiceAccount <code>pod-lister-sa</code>.**
 
 <details><summary>Solution</summary>
 
@@ -149,7 +149,7 @@ kubectl get rolebindings
 
 
 
-**7.	Create a new nginx Pod named <code>nginx2</code> and assign the <code>pod-lister-sa</code> ServiceAccount to it**
+**7.	Create a new nginx Pod named <code>nginx2</code> and assign the <code>pod-lister-sa</code> ServiceAccount to it.**
 
 <details><summary>Solution</summary>
 

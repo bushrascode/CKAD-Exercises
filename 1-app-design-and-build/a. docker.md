@@ -2,7 +2,7 @@
 
 The exam expects you to be comfortable using both Docker and Podman. These two are syntactically quite similar. Feel free to solve the following exercises using either Docker or Podman. <br>
 
-**1. Build a Docker image using the Dockerfile below and tag it as <code>my-username/alpine</code>**
+**1. Build a Docker image using the Dockerfile below and tag it as <code>my-username/alpine</code>.**
 
 ```YAML
 FROM alpine:latest 
@@ -21,7 +21,7 @@ docker build -t my-username/alpine .
 </p>
 </details>
 
-**2. List all Docker images**
+**2. List all Docker images.**
 
 <details><summary>Solution</summary>
 <p>
@@ -33,7 +33,7 @@ docker image list
 </p>
 </details>
 
-**3. Create a container using the <code>my-username/alpine</code> image, run it in the background, and name it <code>my-container</code>**
+**3. Create a container using the <code>my-username/alpine</code> image, run it in the background, and name it <code>my-container</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -45,7 +45,7 @@ docker run -d --name=my-container my-username/alpine:latest
 </p>
 </details>
 
-**4. Show all running containers**
+**4. Show all running containers.**
 
 <details><summary>Solution</summary>
 <p>
@@ -57,7 +57,7 @@ docker ps
 </p>
 </details>
 
-**5. Write the logs of the container to <code>logs.txt</code>**
+**5. Write the logs of the container to <code>logs.txt</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -69,7 +69,7 @@ docker logs my-container > logs.txt
 </p>
 </details>
 
-**6. Stop the container**
+**6. Stop the container.**
 
 <details><summary>Solution</summary>
 <p>
@@ -95,7 +95,7 @@ docker ps -a
 </details>
 
 
-**8. Export the container to a TAR archive**
+**8. Export the container to a TAR archive.**
 
 <details><summary>Solution</summary>
 <p>
@@ -108,7 +108,7 @@ docker export my-container > my-container.tar
 </details>
 
 
-**9. Delete the container**
+**9. Delete the container.**
 
 <details><summary>Solution</summary>
 <p>
@@ -121,7 +121,7 @@ docker rm my-container
 </details>
 
 
-**10. Save the image as a TAR file**
+**10. Save the image as a TAR file.**
 
 <details><summary>Solution</summary>
 <p>
@@ -134,7 +134,7 @@ docker save my-username/alpine:latest > my-image.tar
 </details>
 
 
-**11. Delete the image**
+**11. Delete the image.**
 
 <details><summary>Solution</summary>
 <p>
@@ -147,7 +147,7 @@ docker image rm my-username/alpine:latest
 </details>
 
 
-**12. Load the deleted image from the archive file and retag it as <code>my-username/alpine:v1</code>**
+**12. Load the deleted image from the archive file and retag it as <code>my-username/alpine:v1</code>.**
 
 <details><summary>Solution</summary>
 <p>

@@ -478,7 +478,7 @@ status: {}
 </details>
 
 
-**6. Check the logs of one of the Pods**
+**6. Check the logs of one of the Pods.**
 
 <details><summary>Solution</summary>
 <p>
@@ -610,7 +610,7 @@ kubectl apply -f fridaycronjob.yaml
 </details>
 
 
-**4. Create a Job from the CronJob created in step 3**
+**4. Create a Job from the CronJob created in step 3.**
 <details><summary>Solution</summary>
 <p>
 

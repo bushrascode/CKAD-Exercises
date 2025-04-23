@@ -13,7 +13,7 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 </details>
 
 
-**2. List all the charts in the repo**
+**2. List all the charts in the repo.**
 
 <details><summary>Solution</summary>
 <p>
@@ -26,7 +26,7 @@ helm search repo bitnami
 </details>
 
 
-**3.	Search for the <code>jenkins</code> chart in the repo**
+**3.	Search for the <code>jenkins</code> chart in the repo.**
 
 <details><summary>Solution</summary>
 <p>
@@ -39,7 +39,7 @@ helm search repo bitnami/jenkins
 </details>
 
 
-**4. Show all values of the <code>jenkins</code> chart**
+**4. Show all values of the <code>jenkins</code> chart.**
 
 <details><summary>Solution</summary>
 <p>
@@ -52,7 +52,7 @@ helm show values bitnami/jenkins
 </details>
 
 
-**5.	Show all versions of the <code>jenkins</code> chart**
+**5.	Show all versions of the <code>jenkins</code> chart.**
 
 <details><summary>Solution</summary>
 <p>
@@ -79,7 +79,7 @@ kubectl get pods
 </details>
 
 
-**7.	List all releases, including broken ones**
+**7.	List all releases, including broken ones.**
 
 <details><summary>Solution</summary>
 <p>
@@ -92,7 +92,7 @@ helm ls -a
 </details>
 
 
-**8.	Upgrade the <code>jenkins</code> release to version <code>13.0.0</code>**
+**8.	Upgrade the <code>jenkins</code> release to version <code>13.0.0</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -105,7 +105,7 @@ helm upgrade jenkins bitnami/jenkins --version 13.0.0
 </details>
 
 
-**9.	Uninstall the <code>jenkins</code> release**
+**9.	Uninstall the <code>jenkins</code> release.**
 
 <details><summary>Solution</summary>
 <p>
@@ -119,7 +119,7 @@ helm uninstall jenkins
 
 
 
-**10.	Pull the latest <code>redis</code>  chart to your home folder and unzip it**
+**10.	Pull the latest <code>redis</code>  chart to your home folder and unzip it.**
 
 <details><summary>Solution</summary>
 <p>
@@ -134,7 +134,7 @@ helm pull bitnami/redis --untar
 </details>
 
 
-**11.	Show the environment variables that Helm uses for configuration**
+**11.	Show the environment variables that Helm uses for configuration.**
 
 <details><summary>Solution</summary>
 <p>

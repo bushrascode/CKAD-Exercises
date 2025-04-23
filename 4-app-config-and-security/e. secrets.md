@@ -58,7 +58,7 @@ status: {}
 
 
 
-**3. Check the logs of the <code>busybox</code> Pod**
+**3. Check the logs of the <code>busybox</code> Pod.**
 
 <details><summary>Solution</summary>
 
@@ -72,7 +72,7 @@ kubectl logs busybox #should display pass123!
 
 
 
-**4.	Delete the <code>busybox</code> Pod**
+**4.	Delete the <code>busybox</code> Pod.**
 
 <details><summary>Solution</summary>
 
@@ -141,9 +141,9 @@ cat password #should display pass123!
 
 ### Create TLS Secret
 
-**1. Create a TLS certificate using the following command: <code>openssl req -x509 -newkey rsa:2048 -keyout tls.key -out tls.crt -days 365 -nodes</code>**
+**1. Create a TLS certificate using the following command: <code>openssl req -x509 -newkey rsa:2048 -keyout tls.key -out tls.crt -days 365 -nodes</code>.**
 
-**2.	Create a Secret named <code>tls-secret</code> using the certificate and key files**
+**2.	Create a Secret named <code>tls-secret</code> using the certificate and key files.**
 
 <details><summary>Solution</summary>
 
@@ -204,7 +204,7 @@ kubectl apply -f busybox2.yaml
 
 
 
-**4.	Exec into the Pod and check the <code>/etc/tls-certs</code> folder**
+**4.	Exec into the Pod and check the <code>/etc/tls-certs</code> folder.**
 
 <details><summary>Solution</summary>
 

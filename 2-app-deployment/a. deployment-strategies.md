@@ -127,7 +127,7 @@ spec:
 </details>
 
 
-**4. Update the NodePort service to point to the <code>green</code> Deployment instead of the <code>blue</code> one**
+**4. Update the NodePort service to point to the <code>green</code> Deployment instead of the <code>blue</code> one.**
 
 <details><summary>Solution</summary>
 
@@ -159,7 +159,7 @@ curl {nodeIp}:30008
 </details>
 
 
-**5. Delete the <code>green</code> Deployment, then try sending a request to the <code>green</code> Pod using the NodePort service**
+**5. Delete the <code>green</code> Deployment, then try sending a request to the <code>green</code> Pod using the NodePort service.**
 
 <details><summary>Solution</summary>
 
@@ -171,7 +171,7 @@ curl {nodeIp}:30008 #should not respond
 </details>
 
 
-**6. Update the NodePort service to point back to the <code>blue</code> Deployment**
+**6. Update the NodePort service to point back to the <code>blue</code> Deployment.**
 <details><summary>Solution</summary>
 
 node-port-service.yaml
@@ -319,7 +319,7 @@ kubectl apply -f canary-deployment.yaml
 </details>
 
 
-**3. Get the ClusterIP. Then, create a <code>busybox</code> Pod that hits the ClusterIP. Execute the request multiple times. The responses should come from different containers**
+**3. Get the ClusterIP. Then, create a <code>busybox</code> Pod that hits the ClusterIP. Execute the request multiple times. The responses should come from different containers.**
 
 <details><summary>Solution</summary>
 <p>

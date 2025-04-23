@@ -4,7 +4,7 @@
 
 ### Configmap from literal values
 
-**1.	Create a ConfigMap named <code>username-cm</code> imperatively with the key <code>username</code> and the value <code>myuser</code>**
+**1.	Create a ConfigMap named <code>username-cm</code> imperatively with the key <code>username</code> and the value <code>myuser</code>.**
 
 <details><summary>Solution</summary>
 
@@ -19,7 +19,7 @@ kubectl get cm
 
 
 
-**2.	Mount the ConfigMap <code>username-cm</code> in a new nginx Pod under the path <code>/etc/username</code>, and set <code>readOnly: true</code>. Create the Pod**
+**2.	Mount the ConfigMap <code>username-cm</code> in a new nginx Pod under the path <code>/etc/username</code>, and set <code>readOnly: true</code>. Create the Pod.**
 
 <details><summary>Solution</summary>
 
@@ -57,7 +57,7 @@ spec:
 
 
 
-**3.	Exec into the <code>nginx</code> Pod and verify the ConfigMap in the <code>/etc/username</code> folder**
+**3.	Exec into the <code>nginx</code> Pod and verify the ConfigMap in the <code>/etc/username</code> folder.**
 
 <details><summary>Solution</summary>
 
@@ -73,7 +73,7 @@ cat username #should display 'myuser'
 
 
 
-**4.	Delete the <code>nginx</code> Pod and the Configmap**
+**4.	Delete the <code>nginx</code> Pod and the Configmap.**
 
 <details><summary>Solution</summary>
 
@@ -90,7 +90,7 @@ kubectl delete cm username-cm
 
 ### Configmap from env file
 
-**1. Create a <code>config.env</code> file that contains the following key-value pair: <code>DATABASE_URL=postgres://user:password@localhost:5432/mydb</code>**
+**1. Create a <code>config.env</code> file that contains the following key-value pair: <code>DATABASE_URL=postgres://user:password@localhost:5432/mydb</code>.**
 
 <details><summary>Solution</summary>
 
@@ -105,7 +105,7 @@ vim config.env
 
 
 
-**2. Create a ConfigMap named <code>database-cm</code> imperatively using the <code>config.env</code> file**
+**2. Create a ConfigMap named <code>database-cm</code> imperatively using the <code>config.env</code> file.**
 
 <details><summary>Solution</summary>
 
@@ -121,7 +121,7 @@ kubectl get cm
 
 
 
-**3. Create an <code>nginx</code> Pod and configure the container to use environment variables from the ConfigMap <code>database-cm</code>**
+**3. Create an <code>nginx</code> Pod and configure the container to use environment variables from the ConfigMap <code>database-cm</code>.**
 
 <details><summary>Solution</summary>
 
@@ -156,7 +156,7 @@ kubectl apply -f nginx.yaml
 
 
 
-**4. Exec into the <code>nginx</code> Pod and list all environment variables**
+**4. Exec into the <code>nginx</code> Pod and list all environment variables.**
 
 <details><summary>Solution</summary>
 
@@ -171,7 +171,7 @@ env #should display DATABASE_URL=postgres://user:password@localhost:5432/mydb am
 
 
 
-**5.	Delete the <code>nginx</code> Pod and the <code>database-cm</code> ConfigMap**
+**5.	Delete the <code>nginx</code> Pod and the <code>database-cm</code> ConfigMap.**
 
 <details><summary>Solution</summary>
 
@@ -218,7 +218,7 @@ kubectl get cm
 
 
 
-**3.	Create an <code>nginx</code> Pod and set an env variable named <code>CONFIGMAP_USERNAME2</code> that takes the value associated with the key <code>username2</code> from the ConfigMap <code>username2-cm</code>**
+**3.	Create an <code>nginx</code> Pod and set an env variable named <code>CONFIGMAP_USERNAME2</code> that takes the value associated with the key <code>username2</code> from the ConfigMap <code>username2-cm</code>.**
 
 <details><summary>Solution</summary>
 
@@ -255,7 +255,7 @@ spec:
 
 
 
-**4.	Exec into the <code>nginx</code> Pod and list all environment variables**
+**4.	Exec into the <code>nginx</code> Pod and list all environment variables.**
 
 <details><summary>Solution</summary>
 
@@ -270,7 +270,7 @@ env #should display CONFIGMAP_USERNAME2=myuser2 among other env variables
 
 
 
-**5.	Delete the Pod and the Configmap**
+**5.	Delete the Pod and the Configmap.**
 
 <details><summary>Solution</summary>
 

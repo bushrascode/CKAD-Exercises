@@ -21,7 +21,7 @@ kubectl describe pod nginx | grep -i "Service Account" #should display 'default'
 
 
 
-**2. Disable the 'ServiceAccount' admission controller. Note: it may take a few minutes for the cluster to restart**
+**2. Disable the 'ServiceAccount' admission controller. Note: it may take a few minutes for the cluster to restart.**
 
 <details><summary>Solution</summary>
 
@@ -56,7 +56,7 @@ kubectl describe pod nginx2 | grep -i "Service Account" #should return nothing
 
 ### Roles and RoleBindings
 
-**1. Create a namespace named <code>test-roles</code>**
+**1. Create a namespace named <code>test-roles</code>.**
 
 <details><summary>Solution</summary>
 
@@ -72,7 +72,7 @@ kubectl get ns
 
 
 
-**2.	Set this namespace to be used in the current context**
+**2.	Set this namespace to be used in the current context.**
 
 <details><summary>Solution</summary>
 
@@ -87,7 +87,7 @@ kubectl config set-context --current --namespace=test-roles
 
 
 
-**3.	Create the <code>deployment-manager</code> Role in the <code>test-roles</code> namespace  that allows the following operations on Deployments: <code>get, list, watch, create,</code> and <code>update</code>**
+**3.	Create the <code>deployment-manager</code> Role in the <code>test-roles</code> namespace  that allows the following operations on Deployments: <code>get, list, watch, create,</code> and <code>update</code>.**
 
 <details><summary>Solution</summary>
 
@@ -115,7 +115,7 @@ kubectl get roles
 
 
 
-**4.	Create the <code>deployment-manager-sa</code> ServiceAccount in the <code>test-roles</code> namespace. Use the imperative command to create the ServiceAccount**
+**4.	Create the <code>deployment-manager-sa</code> ServiceAccount in the <code>test-roles</code> namespace. Use the imperative command to create the ServiceAccount.**
 
 <details><summary>Solution</summary>
 
@@ -131,7 +131,7 @@ kubectl get sa
 
 
 
-**5.	Create the <code>deployment-manager-binding</code> RoleBinding to bind the role <code>deployment-manager</code> to the <code>deployment-manager-sa</code> ServiceAccount**
+**5.	Create the <code>deployment-manager-binding</code> RoleBinding to bind the role <code>deployment-manager</code> to the <code>deployment-manager-sa</code> ServiceAccount.**
 
 <details><summary>Solution</summary>
 
