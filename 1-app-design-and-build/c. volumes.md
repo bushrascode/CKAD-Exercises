@@ -48,8 +48,8 @@ cd data
 
 **2.	Create a Pod that mounts a Persistent Volume (PV) using a Persistent Volume Claim (PVC). The data will persist even if the Pod is deleted.**
 1. Create a Persistent Volume with access mode <code>ReadWriteOnce</code> and <code>1Gi</code> storage. Specify <code>/mnt/data</code> as the <code>hostPath</code>
-2. Create a Persistent Volume claim with access mode <code>ReadWriteOnce</code>, <code>storageClass</code> set to <code>""</code>, requesting <code>1Gi</code> storage, and bound to the volume created in 1.
-3. Create a Pod that uses the <code>busybox</code> image and mounts the volume referenced by the Persistent Volume claim. The mounted volume should be named <code>my-storage</code>. The container will mount the volume at the path <code>/data</code> and execute the following command: <code>echo 'Hello, Persistent Volume!' > /data/message.txt && sleep 3600</code>. Create the Pod's YAML, then create the Pod. Next, change the command to <code>"echo 'Hello, Persistent Volume!' && sleep 3600"</code>, delete the Pod itself, and create it again. Exec into the Pod and check if yo stil find the message.txt file in the <code>/data</code> folder
+2. Create a Persistent Volume claim with access mode <code>ReadWriteOnce</code>, <code>storageClass</code> set to <code>""</code>, requesting <code>1Gi</code> storage, and bound to the volume created in step 1.
+3. Create a Pod that uses the <code>busybox</code> image and mounts the volume referenced by the Persistent Volume claim. The mounted volume should be named <code>my-storage</code>. The container will mount the volume at the path <code>/data</code> and execute the following command: <code>echo 'Hello, Persistent Volume!' > /data/message.txt && sleep 3600</code>. Create the Pod's YAML, then create the Pod. Next, change the command to <code>"echo 'Hello, Persistent Volume!' && sleep 3600"</code>, delete the Pod itself, and create it again. Exec into the Pod and check if you still find the message.txt file in the <code>/data</code> folder
 
 <details><summary>Solution</summary>
 <p>

@@ -9,7 +9,7 @@
 
 ### Pods
 
-**1. Create a new Pod using the <code>busybox</code> image and display all Pods in the default namespace**
+**1. Create a Pod using the <code>busybox</code> image, then display all Pods in the default namespace.**
 
 <details><summary>Solution</summary>
 <p>
@@ -23,7 +23,7 @@ kubectl get pods #the namespace is 'default' unless specified otherwise
 </details>
 
 
-**2. Create a new Pod using the <code>busybox</code> image and set <code>restartPolicy</code> to <code>Never</code>.**
+**2. Create a new busybox Pod named <code>busybox2</code> with <code>restartPolicy</code> set to <code>Never</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -37,7 +37,7 @@ kubectl get pods
 </details>
 
 
-**3. Create an nginx Pod and save its logs to app.log**
+**3. Create an <code>nginx</code> Pod and save its logs to <code>app.log</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -51,7 +51,7 @@ kubectl logs nginx > app.log
 </details>
 
 
-**4. Execute into the <code>nginx</code> Pod and list all environment variables**
+**4. Execute into the <code>nginx</code> Pod and list all environment variables.**
 
 <details><summary>Solution</summary>
 <p>
@@ -64,7 +64,7 @@ kubectl exec -it nginx /bin/bash -- env
 </details>
 
 
-**5. Show the <code>nginx</code> Pod's IP**
+**5. Show the <code>nginx</code> Pod's IP.**
 
 <details><summary>Solution</summary>
 <p>
@@ -78,7 +78,7 @@ kubectl describe pods nginx | grep -i IP #solution 2
 </details>
 
 
-**6. Force the <code>nginx</code> Pod to be deleted immediately**
+**6. Force the <code>nginx</code> Pod to be deleted immediately.**
 
 <details><summary>Solution</summary>
 <p>
@@ -91,7 +91,7 @@ kubectl delete pods nginx --force --grace-period=0
 </details>
 
 
-**7. Create a new <code>nginx</code> Pod. Then, create a <code>busybox</code> Pod that sends a request to the <code>nginx</code> Pod using <code>wget {podIp}:80</code>**
+**7. Create a new <code>nginx</code> Pod. Then, create a <code>busybox</code> Pod that sends a request to the <code>nginx</code> Pod using <code>wget {podIp}:80</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -106,7 +106,7 @@ kubectl run busybox --image=busybox --restart=Never -it --rm -- wget -O- {podIp}
 </details>
 
 
-**8. Create a YAML config file for an <code>nginx</code> Pod without applying it. Name the container <code>nginx-container</code>. Then, create the Pod**
+**8. Create a YAML config file for an <code>nginx</code> Pod without applying it. Name the container <code>nginx-container</code>. Then, create the Pod.**
 
 <details><summary>Solution</summary>
 <p>
@@ -144,7 +144,7 @@ kubectl describe pod nginx | grep -i nginx-container
 
 ### ReplicaSets
 
-**1. Create a ReplicaSet with 3 replicas using the <code>wordpress</code> image**
+**1. Create a ReplicaSet with 3 replicas using the <code>wordpress</code> image.**
 
 <details><summary>Solution</summary>
 <p>
@@ -239,7 +239,7 @@ spec:
 
 ### Deployments
 
-**1. Create a namespace called <code>production</code>**
+**1. Create a namespace called <code>production</code>.**
 
 <details><summary>Solution</summary>
 <p>
@@ -252,7 +252,7 @@ kubectl create ns production
 </details>
 
 
-**2. Set the namespace to <code>production</code> for the current Kubernetes context**
+**2. Set the namespace to <code>production</code> for the current Kubernetes context.**
 
 <details><summary>Solution</summary>
 <p>
@@ -265,7 +265,7 @@ kubectl config set-context --current --namespace=production
 </details>
 
 
-**3. Create the YAML file for a Deployment named <code>nginx</code> that uses the <code>nginx:1.27</code> image with 2 replicas. Do not create the Deployment yet**
+**3. Create the YAML file for a Deployment named <code>nginx</code> that uses the <code>nginx:1.27</code> image with 2 replicas. Do not create the Deployment yet.**
 
 <details><summary>Solution</summary>
 <p>
@@ -278,7 +278,7 @@ kubectl create deploy nginx --image=nginx:1.27 --replicas=2 --dry-run=client -o 
 </details>
 
 
-**4. Create the deployment in the <code>production</code> namespace, list all the Pods in that namespace**
+**4. Create the deployment in the <code>production</code> namespace, list all the Pods in that namespace.**
 
 <details><summary>Solution</summary>
 <p>
@@ -294,7 +294,7 @@ kubectl get pods
 </details>
 
 
-**5. Scale the deployment to 4 replicas and display all the Pods in the namespace**
+**5. Scale the deployment to 4 replicas and display all the Pods in the namespace.**
 
 <details><summary>Solution</summary>
 <p>
@@ -328,7 +328,7 @@ kubectl describe pod {podName}
 </details>
 
 
-**7. Show all revisions of the deployment and revert it to a working one**
+**7. Show all revisions of the deployment and revert it to a working one.**
 
 <details><summary>Solution</summary>
 <p>
@@ -347,7 +347,7 @@ kubectl get pods # all pods should be running
 
 ### Jobs
 
-**1. Switch back to the <code>default</code> namespace**
+**1. Switch back to the <code>default</code> namespace.**
 
 <details><summary>Solution</summary>
 <p>
@@ -391,7 +391,7 @@ status: {}
 </details>
 
 
-**3. Create the Job and watch its status**
+**3. Create the Job and watch its status.**
 
 <details><summary>Solution</summary>
 <p>
@@ -404,7 +404,7 @@ kubectl get jobs --watch
 </details>
 
 
-**4. Delete the job and recreate it, ensuring that if the job is not completed within 10 seconds, the Pods will terminate**
+**4. Delete the job and recreate it, ensuring that if the job is not completed within 10 seconds, the Pods will terminate.**
 
 <details><summary>Solution</summary>
 <p>
@@ -440,7 +440,7 @@ status: {}
 </details>
 
 
-**5. Delete the previously created job, change the deadline to 1 minute, and recreate it with <code>completions</code> set to 4 and <code>parallelism</code> set to 2**
+**5. Delete the previously created job, change the deadline to 1 minute, and recreate it with <code>completions</code> set to 4 and <code>parallelism</code> set to 2.**
 
 <details><summary>Solution</summary>
 <p>
@@ -534,7 +534,7 @@ kubectl apply -f cronjob.yaml
 </details>
 
 
-**2. If the Job misses its scheduled time by 60 seconds, ensure that the CronJob skips the current iteration**
+**2. If the Job misses its scheduled time by 60 seconds, ensure that the CronJob skips the current iteration.**
 
 <details><summary>Solution</summary>
 <p>
@@ -657,7 +657,7 @@ kubectl get pods
 </details>
 
 
-**2. Create a Pod with 2 containers, both using the <code>busybox</code> image and executing the command: <code>['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']</code>. Exec into the first container and list all environment variables**
+**2. Create a Pod with 2 containers, both using the <code>busybox</code> image and executing the command: <code>['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']</code>. Exec into the first container and list all environment variables.**
 
 <details><summary>Solution</summary>
 <p>

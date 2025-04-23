@@ -65,7 +65,7 @@ helm search repo bitnami/jenkins --versions
 </details>
 
 
-**6.	Install the <code>jenkins</code> chart with chart version <code> 12.0.0</code>  and 4 Replicas. Then, list all Pods.**
+**6.	Install the <code>jenkins</code> chart with chart version <code>12.0.0</code>  and 4 Replicas. Then, list all Pods.**
 
 <details><summary>Solution</summary>
 <p>
@@ -92,7 +92,7 @@ helm ls -a
 </details>
 
 
-**8.	Upgrade the <code>jenkins</code> release to version <code> 13.0.0</code>**
+**8.	Upgrade the <code>jenkins</code> release to version <code>13.0.0</code>**
 
 <details><summary>Solution</summary>
 <p>
@@ -119,7 +119,7 @@ helm uninstall jenkins
 
 
 
-**10.	Pull the latest <code> redis</code>  chart to your home folder and unzip it**
+**10.	Pull the latest <code>redis</code>  chart to your home folder and unzip it**
 
 <details><summary>Solution</summary>
 <p>

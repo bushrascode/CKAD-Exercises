@@ -162,7 +162,7 @@ kubectl get rolebindings
 
 
 
-**6.	Test your work by impersonating the ServiceAccount to list the deployments using the following command:**
+**6.	Test your work by impersonating the ServiceAccount to list the Deployments using the following command:**
 
 ```bash
 kubectl auth can-i list deployments --namespace=test-roles --as=system:serviceaccount:test-roles:deployment-manager-sa #should display 'yes'

@@ -2,7 +2,7 @@
 
 The exam expects you to be comfortable using both Docker and Podman. These two are syntactically quite similar. Feel free to solve the following exercises using either Docker or Podman. <br>
 
-**1. Build a Docker image using the following Dockerfile and tag it as <code>my-username/alpine</code>**
+**1. Build a Docker image using the Dockerfile below and tag it as <code>my-username/alpine</code>**
 
 ```YAML
 FROM alpine:latest 
@@ -57,7 +57,7 @@ docker ps
 </p>
 </details>
 
-**5. Write the logs of the container to logs.txt**
+**5. Write the logs of the container to <code>logs.txt</code>**
 
 <details><summary>Solution</summary>
 <p>

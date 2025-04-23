@@ -7,7 +7,7 @@
 
 ### Requests, Limits
 
-**1.	Create a wordpress Pod with resource requests set to 64Mi of memory and 0.2 CPU core, and limits set to 128Mi of memory and 0.5 CPU, applied at the container level**
+**1.	Create a <code>wordpress</code> Pod with resource requests set to 64Mi of memory and 0.2 CPU core, and limits set to 128Mi of memory and 0.5 CPU, applied at the container level**
 
 <details><summary>Solution</summary>
 
@@ -93,7 +93,7 @@ kubectl get limitrange
 
 
 
-**2.	Create a wordpress Pod with 64Mi of memory and 0.2 CPU core for requests, and limits of 128Mi of memory and 0.6 CPU. Was the Pod creation successful?**
+**2.	Create a <code>wordpress</code> Pod with 64Mi of memory and 0.2 CPU core for requests, and limits of 128Mi of memory and 0.6 CPU. Was the Pod creation successful?**
 
 <details><summary>Solution</summary>
 
@@ -149,7 +149,7 @@ kubectl delete limitrange cpu-resource-constraint
 
 ### Quotas
 
-**1. Create a namespace named 'test-quota'**
+**1. Create a namespace named <code>test-quota</code>**
 
 <details><summary>Solution</summary>
 
@@ -165,7 +165,7 @@ kubectl get ns
 
 
 
-**2.	Create a ResourceQuota that sets the following hard limits for the 'test-quota' namespace: cpu: 5, memory: 5Gi, and Pods: 2**
+**2.	Create a ResourceQuota that sets the following hard limits for the <code>test-quota</code> namespace: cpu: 5, memory: 5Gi, and Pods: 2**
 
 <details><summary>Solution</summary>
 
@@ -181,7 +181,7 @@ kubectl get quota -n test-quota
 
 
 
-**3.	Create a deployment using the nginx image with 3 replicas in the 'test-quota' namespace. Set resource requests to 64Mi of memory and 0.2 CPU core, and limits to 128Mi of memory and 0.5 CPU, applied at the container level. Was the creation successful? Are all Pods running?**
+**3.	Create a Deployment using the <code>nginx</code> image with 3 Replicas in the <code>test-quota</code> namespace. Set resource requests to 64Mi of memory and 0.2 CPU core, and limits to 128Mi of memory and 0.5 CPU, applied at the container level. Was the creation successful? Are all Pods running?**
 
 <details><summary>Solution</summary>
 

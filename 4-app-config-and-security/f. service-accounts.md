@@ -2,7 +2,7 @@
 
 * [Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ "Service Accounts")
 
-**1.	Create a ServiceAccount named 'my-sa'**
+**1.	Create a ServiceAccount named <code>my-sa</code>**
 
 <details><summary>Solution</summary>
 
@@ -16,7 +16,7 @@ kubectl create sa my-sa
 
 
 
-**2.	Create an nginx Pod and assign the 'my-sa' ServiceAccount to it.**
+**2.	Create an <code>nginx</code> Pod and assign the <code>my-sa</code> ServiceAccount to it.**
 
 <details><summary>Solution</summary>
 
@@ -55,7 +55,7 @@ kubectl describe pod nginx | grep -i "Service Account" #should display 'my-sa'
 
 
 
-**3.	Exec into the nginx Pod and navigate to the folder that contains the token associated with the 'my-sa' ServiceAccount. Display the contents of the token file.**
+**3.	Exec into the <code>nginx</code> Pod and navigate to the folder that contains the token associated with the <code>my-sa</code> ServiceAccount. Display the contents of the token file.**
 
 <details><summary>Solution</summary>
 
@@ -72,7 +72,7 @@ cat token
 
 
 
-**4.	Create another ServiceAccount named 'pod-lister-sa'**
+**4.	Create another ServiceAccount named <code>pod-lister-sa</code>**
 
 <details><summary>Solution</summary>
 
@@ -87,7 +87,7 @@ kubectl get sa
 
 
 
-**5.	Create a Role named 'pod-lister' that grants permission to list Pods**
+**5.	Create a Role named <code>pod-lister</code> that grants permission to list Pods**
 
 <details><summary>Solution</summary>
 
@@ -116,7 +116,7 @@ kubectl get roles
 
 
 
-**6.	Create a RoleBinding named 'sa-role-binding' that binds the 'pod-lister' Role to the ServiceAccount 'pod-lister-sa**
+**6.	Create a RoleBinding named <code>sa-role-binding</code> that binds the <code>pod-lister</code> Role to the ServiceAccount <code>pod-lister-sa</code>**
 
 <details><summary>Solution</summary>
 
@@ -149,7 +149,7 @@ kubectl get rolebindings
 
 
 
-**7.	Create a new nginx Pod named 'nginx2' and assign the 'pod-lister-sa' ServiceAccount to it**
+**7.	Create a new nginx Pod named <code>nginx2</code> and assign the <code>pod-lister-sa</code> ServiceAccount to it**
 
 <details><summary>Solution</summary>
 
