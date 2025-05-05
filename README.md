@@ -2,9 +2,7 @@
 
 - A set of exercises designed to prepare for the CKAD exam, structured according to the exam curriculum: https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/
 - If you notice any errors or would like to suggest an alternative solution to a question, you're welcome to open a PR!
-- If these exercises were helpful to you in any way while preparing for the CKAD exam, feel free to support the project on **Ko-Fi**: 
-
-[https://ko-fi.com/sarapetres](https://ko-fi.com/sarapetres)
+---
 
 ### Contents:
 - **Application Design And Build**
@@ -29,4 +27,8 @@
 - **Services and Networking**
     - [Network Policies](5-services-and-networking/a.%20network-policies.md)
     - [Services](5-services-and-networking/b.%20services.md)
+ <br/>
+ ---
+ - If these exercises were helpful to you in any way while preparing for the CKAD exam, feel free to support the project on **Ko-Fi**: 
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S21DYWO6)
