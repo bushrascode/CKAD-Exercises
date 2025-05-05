@@ -28,7 +28,9 @@
     - [Network Policies](5-services-and-networking/a.%20network-policies.md)
     - [Services](5-services-and-networking/b.%20services.md)
  <br/>
+ 
  ---
+
  - If these exercises were helpful to you in any way while preparing for the CKAD exam, feel free to support the project on **Ko-Fi**: 
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S21DYWO6)
