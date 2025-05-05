@@ -1,7 +1,7 @@
 # CKAD Exercises
 
 - A set of exercises designed to prepare for the CKAD exam, structured according to the exam curriculum: https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/
-- If you notice any errors or would like to suggest an alternative solution to a question, you're welcome to open a PR!
+- If you notice any errors or would like to suggest an alternative solution to a question, **you're welcome to open a PR!**
 ---
 
 ### Contents:
