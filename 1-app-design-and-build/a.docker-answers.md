@@ -50,3 +50,43 @@ can also use docker image list
 - docker load < <image-filename>.tar
 - docker tag <image-sha> bushra-fatima/alpine:v1
 - docker images (to check it is done correctly)
+
+
+
+
+
+
+* notes:
+
+👉 What does > mean in Linux?
+
+It’s an output redirection operator.
+
+Instead of sending command output to the terminal (stdout), it sends it into a file.
+
+Example:
+
+ls > files.txt
+
+
+This puts the output of ls into a file called files.txt.
+
+If the file already exists, it gets overwritten.
+
+If you want to append instead of overwrite, you use >>.
+
+🗂 What is tar?
+
+tar = tape archive (throwback to when backups went onto magnetic tape).
+
+It’s a command-line utility in Linux/Unix used to bundle multiple files together into a single archive file.
+
+Think of it as Linux’s version of making a .zip, but without compression by default.
+
+Common uses in Docker/K8s world:
+
+Packaging source code into one .tar file for transfer/build.
+
+Saving/exporting Docker images as .tar files (docker save myimage > myimage.tar).
+
+Loading images later from that archive (docker load < myimage.tar).
