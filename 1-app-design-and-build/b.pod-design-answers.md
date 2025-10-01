@@ -42,3 +42,7 @@ Without it, kubectl might think env is one of its own flags
 --force → required if you’re bypassing normal graceful termination
 
 
+ReplicaSets
+1)Create a ReplicaSet with 3 replicas using the wordpress image
+
+-
