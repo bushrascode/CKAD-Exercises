@@ -90,3 +90,15 @@ Packaging source code into one .tar file for transfer/build.
 Saving/exporting Docker images as .tar files (docker save myimage > myimage.tar).
 
 Loading images later from that archive (docker load < myimage.tar).
+
+
+
+* PRACTICE AGAIN!!
+
+
+
+
+
+
+
+
