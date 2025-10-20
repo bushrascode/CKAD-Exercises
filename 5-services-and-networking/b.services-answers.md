@@ -13,3 +13,12 @@ kubectl exec -it busybox -- sh
 
 2. Create a Pod using the httpd:alpine image and expose it via a NodePort service named httpd-nodeport on node port 30001, setting both the port and targetPort to 80. Then, get the node the Pod is assigned to, display its IP address, and access the Pod using {NodeIP}:30001
 
+kubectl run httpd --image=httpd:alpine
+kubectl expose pod httpd --port=80 --target-port=80 --type=NodePort --name=httpd-nodeport -o yaml > httpd-nodeport.yml
+vi httpd-nodeport.yml
+kubectl create -f httpd-nodeport.yml
+kubectl get pods -o wide - pod httpd on minikube node and its ip 10.244.0.41
+
+
+3. Create a Deployment using the nginx image with 2 Replicas, and expose it via a NodePort service named nginx-nodeport on port 20001, setting both the port and targetPort to 80. Were you able to successfully create the NodePort service? If any issues occurred, correct them accordingly.
+
