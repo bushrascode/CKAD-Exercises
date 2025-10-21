@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: "2025-10-20T17:42:47Z"
+  creationTimestamp: "2025-10-21T10:28:19Z"
   labels:
     run: httpd
   name: httpd-nodeport
   namespace: default
-  resourceVersion: "159269"
-  uid: 20ab5519-81bb-4125-ae21-18d106ded09c
+  resourceVersion: "170176"
+  uid: 03aca0a7-ce73-440e-9649-91ed1385ce1c
 spec:
-  clusterIP: 10.98.75.60
+  clusterIP: 10.97.250.8
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
