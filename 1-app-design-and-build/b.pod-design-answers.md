@@ -117,3 +117,12 @@ spec:
 kubectl create -f nginx-rs.yaml - error labels not matching 
 vi nginx-rs.yaml - fix value
 kubectl create -f nginx-rs.yaml
+
+
+**Deployments**
+
+1. create a namespace called production
+kubectl create ns production
+
+2. set the namespace to production for the current kubernetes context 
+kubectl config set-context --current --namespace=production
