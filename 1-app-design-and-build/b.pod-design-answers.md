@@ -67,3 +67,53 @@ docker run --name <container-name> <tagged-image>
 
 
 
+**ReplicaSets**
+1. create a replicaset with 3 replicas using the wordpress image
+You can't create a replicaset imperatively!!
+vi wordpress.yaml
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: wordpress
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: wordpress
+  template:
+    metadata:
+      labels:
+        tier: wordpress
+    spec:
+      containers:
+      - name: wordpress
+        image: wordpress
+
+kubectl create -f wordpress.yaml
+kubectl get rs    
+kubectl get pods
+
+2. create a replicaset from the following file, do you notice any errors? can they be fixed?
+vi nginx-rs.yaml
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-rs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-pod ** fix value
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx                      
+
+kubectl create -f nginx-rs.yaml - error labels not matching 
+vi nginx-rs.yaml - fix value
+kubectl create -f nginx-rs.yaml
