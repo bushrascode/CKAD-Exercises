@@ -24,32 +24,9 @@ curl -v http://192.168.49.2:30001 to access the app via NodePort
 
 3. Create a Deployment using the nginx image with 2 Replicas, and expose it via a NodePort service named nginx-nodeport on port 20001, setting both the port and targetPort to 80. Were you able to successfully create the NodePort service? If any issues occurred, correct them accordingly.
 
+kubectl create deploy nginx --image=nginx --replicas=2
+kubectl expose deploy nginx --port=80 --target-port=80 --type=NodePort --name=nginx-nodeport --dry-run=client -o yaml > nginx-svc.yaml
+vi nginx-svc.yaml -- add nodePort=20001
+kubectl apply -f httpd-svc.yaml 
+#should display error; resolve it by setting the nodePort to a number within the valid range
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-kubectl run httpd --image=httpd:alpine
-kubectl expose pod httpd --port=80 --target-port=80 --type=NodePort --name=httpd-nodeport -o yaml > httpd-nodeport.yml
-vi httpd-nodeport.yml
-kubectl create -f httpd-nodeport.yml
-kubectl get pods -o wide - pod httpd on minikube node and its ip 10.244.0.41
