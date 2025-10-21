@@ -126,3 +126,47 @@ kubectl create ns production
 
 2. set the namespace to production for the current kubernetes context 
 kubectl config set-context --current --namespace=production
+
+
+**Multi-container Pod design patterns**
+
+1. Create a Pod with 2 containers: one init container that uses the busybox image and executes the following command: ["sh", "-c", "echo 'Some things need to be initialized before the main container starts';", "sleep 20"], the second container should be named main-app and use the image: nginx
+
+kubectl run pod1 --image=busybox --dry-run=client -o yaml > pod1.yaml
+vi pod1.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod1
+spec:
+  initContainers:
+    - image: busybox
+      name: initial-app
+      command: ["sh", "-c", "echo 'Some things need to be initialized before the main container starts';", "sleep 20"]
+  containers:
+  - image: nginx
+    name: main-app
+
+kubectl create -f pod1.yaml
+kubectl get pods
+
+2. Create a Pod with 2 containers, both using the busybox image and executing the command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']. Exec into the first container and list all environment variables.
+
+kubectl run pod2 --image=busybox --dry-run=client -o yaml > pod2.yaml
+vi pod2.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod2
+spec:
+  containers:
+  - image: busybox
+    name: container1
+    command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']
+  - image: busybox
+    name: container2
+    command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']
+
+kubectl exec -it pod2 --container=container2 -- env
+
