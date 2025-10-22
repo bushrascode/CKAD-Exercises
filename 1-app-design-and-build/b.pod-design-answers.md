@@ -1,4 +1,4 @@
-Pods
+**Pods**
 1. Create a Pod using the busybox image, then display all Pods in the default namespace.
 
 kubectl run bushra-pod --image busybox
@@ -121,11 +121,54 @@ kubectl create -f nginx-rs.yaml
 
 **Deployments**
 
-1. create a namespace called production
-kubectl create ns production
+1. Create a namespace called production
 
-2. set the namespace to production for the current kubernetes context 
-kubectl config set-context --current --namespace=production
+kubectl create ns production
+kubectl get ns -A
+
+2. Set the namespace to production for the current Kubernetes context.
+
+kubectl config set-context current --namespace=production
+
+3. Create the YAML file for a Deployment named nginx that uses the nginx:1.27 image with 2 replicas. Do not create the Deployment yet
+
+kubectl create deploy nginx --image=nginx:1.27 --replicas=2 --dry-run=client -o yaml > nginx-deploy.yaml
+
+4. Create the deployment in the production namespace, list all the Pods in that namespace.
+
+kubectl create -f nginx-deploy.yaml --namespace=production 
+kubectl get pods -n=production
+
+5. Scale the deployment to 4 replicas and display all the Pods in the namespace
+
+kubectl scale deploy nginx --replicas=4
+kubectl get pods -n=production
+
+6. Set the image of the deployment to nginx:2.224 and show the status of the deployment. Why does the deployment fail?
+
+kubectl set image deploy nginx nginx=nginx:2.224
+kubectl rollout status deploy nginx
+
+7. Show all revisions of the deployment and revert it to a working one
+
+kubectl rollout history deploy nginx
+kubectl rollout history deploy nginx --revision=1
+kubectl rollout history deploy nginx --revision=2
+kubectl rollout undo deploy nginx --to-revision=1
+kubectl get deploy nginx -o wide #the image version should be nginx:1.27
+kubectl get pods # all pods should be running
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 **Multi-container Pod design patterns**
