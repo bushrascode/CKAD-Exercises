@@ -131,3 +131,51 @@ curl 192.168.49.2:30008
 
 **Canary Deployment**
 
+1. Create the stable httpd Deployment and a service to expose it by applying the following files:
+
+vi stable-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: httpd
+  name: httpd
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: httpd
+  template:
+    metadata:
+      labels:
+        app: httpd
+        purpose: web-server
+    spec:
+      containers:
+      - image: httpd:alpine
+        name: httpd
+kubectl create -f stable-deployment.yaml
+kubectl get pods
+
+vi svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: httpd
+  name: my-svc
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    purpose: web-server
+kubectl create -f svc.yaml
+kubectl get svc
+
+2. Now you have to switch to a new version of the application that uses the caddy:alpine image. The transition should be gradual rather than immediate or automatic, using the Canary approach:
+     a) 25% of requests should be directed to the new caddy:alpine image
+     b) 75% of requests should continue to go to the old httpd image
+     c) Ensure there are a total of 4 Pods running
+
