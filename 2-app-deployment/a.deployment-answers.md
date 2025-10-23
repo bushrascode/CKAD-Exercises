@@ -44,10 +44,89 @@ spec:
 kubectl create -f node-port-service.yaml
 kubectl get svc
 
+2. Find the IP of the node where the nginx Pod is running. Then, access the Pod using the NodePort service you created by running: curl {nodeIP}:{nodePort}
 
+kubectl get pods -o wide
+kubectl describe pod blue-6859bbf9-fgpd4 - its on node: minikube/192.168.49.2
+kubectl get nodes -o wide  - 192.168.49.2 is the internal ip 
+curl 192.168.49.2:30008
 
+3. Create a YAML file for a Deployment named green that uses the nginx:1.27 image with 1 Replica. Then, create the Deployment.
 
+kubectl create deploy green --image=nginx:1.27 --replicas=1 --dry-run=client -o yaml > green-deploy.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: green
+  name: green
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: green
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: green
+    spec:
+      containers:
+      - image: nginx:1.27
+        name: nginx
+        resources: {}
+status: {}
+kubectl create -f green-deploy.yaml
+kubectl get deploy 
 
+4. Update the NodePort service to point to the green Deployment instead of the blue one.
+
+vi node-port-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: mysvc
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30008
+  selector:
+    app: green #change    
+kubectl delete svc mysvc
+kubectl create -f node-port-service.yaml
+curl 192.168.49.2:30008
+
+5. Delete the green Deployment, then try sending a request to the green Pod using the NodePort service.
+
+kubectl delete deploy green 
+curl 192.168.49.2:30008
+
+6. Update the NodePort service to point back to the blue Deployment
+
+kubectl delete svc mysvc
+vi node-port-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: mysvc
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30008
+  selector:
+    app: blue #change    
+kubectl create -f node-port-service.yaml
+curl 192.168.49.2:30008
 
 
 **Canary Deployment**
