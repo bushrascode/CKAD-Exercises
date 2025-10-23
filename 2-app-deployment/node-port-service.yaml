@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: mysvc
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30008
+  selector:
+    app: blue    
